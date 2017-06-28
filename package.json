@@ -17,5 +17,5 @@
     "eject": "react-scripts eject",
     "deploy": "npm run build&&gh-pages -d build"
   },
-  "homepage": "https://dparkar.github.io/blog-react"
+  "homepage": "http://dplogs.com"
 }
