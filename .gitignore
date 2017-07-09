@@ -5,6 +5,7 @@
 
 # testing
 /coverage
+/.vscode/chrome
 
 # production
 /build
@@ -23,3 +24,4 @@ yarn-error.log*
 # css
 .sass-cache/
 *.css.map
+*.css

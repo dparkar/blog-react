@@ -10,7 +10,8 @@
     "npm-run-all": "^4.0.2",
     "prettier": "^1.5.2",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "source-map-explorer": "^1.4.0"
   },
   "devDependencies": {
     "gh-pages": "^1.0.0",
@@ -23,6 +24,7 @@
     ]
   },
   "scripts": {
+    "analyze": "source-map-explorer build/static/js/main.*",
     "precommit": "lint-staged",
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
