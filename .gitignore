@@ -25,3 +25,4 @@ yarn-error.log*
 .sass-cache/
 *.css.map
 *.css
+jest_*
