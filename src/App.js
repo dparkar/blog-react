@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Router, browserHistory, Route, Link } from 'react-router';
 import logo from './logo.svg';
 import './App.css';
+import MarkdownRenderer from 'react-markdown-renderer';
+
+const markdown = '# This is a H1  \n## This is a H2  \n###### This is a H6';
 
 const Page = ({ title }) =>
   <div className="App">
@@ -23,6 +26,7 @@ const Page = ({ title }) =>
     <p>
       <Link to="/settings">Settings</Link>
     </p>
+    <MarkdownRenderer markdown={markdown} />
   </div>;
 
 const Home = props => <Page title="Home" />;
