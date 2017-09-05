@@ -1,4 +1,4 @@
-import { React, Component } from 'react';
+import React, { Component } from 'react';
 import { pushRotate as Menu } from 'react-burger-menu';
 import logo from './logo.svg';
 
