@@ -10,6 +10,7 @@
     "npm-run-all": "^4.0.2",
     "prettier": "^1.5.2",
     "react": "^15.6.1",
+    "react-burger-menu": "^2.1.5",
     "react-dom": "^15.6.1",
     "react-markdown": "^2.5.0",
     "react-markdown-renderer": "^1.4.0",
