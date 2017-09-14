@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Chronology from 'react-chronos';
+import { Chronology } from 'react-chronos';
 import './Logs.css';
 
 export default class Logs extends Component {
