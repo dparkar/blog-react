@@ -38,7 +38,6 @@ export default class Page extends Component {
             <label> Dhawal Parkar logs ...</label>
           </div>
           {React.createElement(sec)}
-          {<sec />}
           <div className="Page-footer">
             <img src={logo} className="Page-logo" alt="logo" />
           </div>
