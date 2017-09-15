@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { pushRotate as Menu } from 'react-burger-menu';
 import logo from './logo.svg';
-import './Page.css';
-import Logs from './Logs.js';
-import Stats from './Stats.js';
-import About from './About.js';
-import Err from './Err.js';
+import './page.css';
+import Logs from './logs.jsx';
+import Stats from './stats.jsx';
+import About from './about.jsx';
+import Err from './err.jsx';
 
 const Sections = { Logs, Stats, About, Err };
 

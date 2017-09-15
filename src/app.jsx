@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Router, browserHistory, Route } from 'react-router';
-import Page from './Page.js';
+import Page from './page.jsx';
 
 const Logs = props => <Page title="Logs" />;
 const Stats = props => <Page title="Stats" />;
