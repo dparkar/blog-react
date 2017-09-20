@@ -1,27 +1,54 @@
 import React, { Component } from 'react';
 import { Chronology } from 'react-chronos';
+// import { Timeline, Bookmark, Marker } from 'react-vertical-timeline';
 import './logs.css';
 
 export default class Logs extends Component {
-  render() {
-    var event1 = { id: 1, details: 'this is the first event' };
-    var event2 = { id: 2, details: 'this is the second event' };
-    var event3 = { id: 3, details: 'this is the third event' };
-    var event4 = { id: 4, details: 'this is the fourth event' };
-    var events = [event1, event2, event3, event4];
+  constructor() {
+    super();
+    this.state = { progress: 50 };
+    /*var that = this;
+    setInterval(function () {
+      that.increment();
+    }, 1000);*/
+  }
 
+  /*  increment() {
+    var progress = this.state.progress > 100 ? 0 : (this.state.progress + 1);
+    this.setState({progress: progress});
+  }
+
+  progressClick(progress) {
+    this.setState({progress: progress});
+  } */
+
+  render() {
     return (
       <div className="Logs">
-        <Chronology type="vertical">
-          {events.map((event, i) =>
-            <div key={event.id}>
-              <div className="marker" />
-              <div className="event event-vertical">
-                {`#${i} ${event.details}`}
-              </div>
+        <Chronology
+          type="vertical"
+          timelineStyle={{ width: '2px', backgroundColor: '#aaa' }}
+        >
+          <div>
+            <div className="marker" />
+            <div className="event event-vertical" style={{ height: `100px` }}>
+              Hi there !
             </div>
-          )}
+            <div className="marker" />
+            <div className="event event-vertical" style={{ height: `100px` }}>
+              Hi there !
+            </div>
+            <div className="marker" />
+            <div className="event event-vertical" style={{ height: `100px` }}>
+              Hi there !
+            </div>
+            <div className="marker" />
+            <div className="event event-vertical" style={{ height: `100px` }}>
+              Hi there !
+            </div>
+          </div>
         </Chronology>
+        test test test
       </div>
     );
   }
