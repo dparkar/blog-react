@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "animakit-elastic": "^1.1.1",
     "flow-bin": "^0.49.1",
     "husky": "^0.14.3",
     "lint-staged": "^4.0.0",
