@@ -6,14 +6,13 @@ export default class Logs extends TrackedComponent {
   render() {
     return (
       <div className="Logs">
+        <p>work in progress ...</p>
         <img
-          src="http://orig10.deviantart.net/046c/f/2013/084/b/a/coding_in_progress_by_phodyr-d5z942u.jpg"
-          alt="coding"
-          height="20%"
-          width="20%"
+          src="https://i.makeagif.com/media/10-27-2015/_jDzHB.gif"
+          alt="work in progress"
         />
         <p>
-          See code here :{' '}
+          See code here : {' '}
           <a href="https://github.com/dparkar/blog-react">
             https://github.com/dparkar/blog-react
           </a>
