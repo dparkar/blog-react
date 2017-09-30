@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { TrackedComponent } from 'react-appinsights';
 import './err.css';
 
-export default class Err extends Component {
+export default class Err extends TrackedComponent {
   render() {
     return (
       <div className="Err">

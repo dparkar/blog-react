@@ -1,15 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { pushRotate as Menu } from 'react-burger-menu';
+import { TrackedComponent } from 'react-appinsights';
 import logo from './logo.svg';
-import './page.css';
 import Logs from './logs.jsx';
 import Stats from './stats.jsx';
 import About from './about.jsx';
 import Err from './err.jsx';
+import './page.css';
 
 const Sections = { Logs, Stats, About, Err };
 
-export default class Page extends Component {
+export default class Page extends TrackedComponent {
   render() {
     var title = this.props.title;
     var sec = Sections[title];
@@ -36,6 +37,7 @@ export default class Page extends Component {
           </title>
           <div className="Page-header">
             <label> Dhawal Parkar logs ...</label>
+            <p>Artificial Intelligence, Deep Learning, Robotics, GPGPU</p>
           </div>
           {React.createElement(sec)}
           <div className="Page-footer">
