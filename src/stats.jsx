@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { TrackedComponent } from 'react-appinsights';
 import './stats.css';
 
-export default class Stats extends Component {
+export default class Stats extends TrackedComponent {
   render() {
     return (
       <div className="Logs">

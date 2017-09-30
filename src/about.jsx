@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { TrackedComponent } from 'react-appinsights';
 import './about.css';
 
-export default class About extends Component {
+export default class About extends TrackedComponent {
   render() {
     return (
       <div className="About">
