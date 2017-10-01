@@ -17,7 +17,6 @@
     "react-chronos": "^1.0.4",
     "react-dom": "^15.6.1",
     "react-markdown": "^2.5.0",
-    "react-markdown-renderer": "^1.4.0",
     "react-router": "^3.0.5",
     "react-vertical-timeline": "^0.1.2",
     "source-map-explorer": "^1.4.0"
