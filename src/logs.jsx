@@ -11,28 +11,33 @@ export default class Logs extends TrackedComponent {
     // get the repo
     var repo = gh.getRepo('dparkar', 'blog-react');
     // get the folder contents
-    repo.getContents('master', 'content', true, (err1, files) => {
-      if (err1) {
-        console.log(err1); // we can't get the data, for some reason
-        return;
-      }
-      // go through each file in the folder
-      files.forEach(function(file) {
-        repo.getContents(
-          'master',
-          'content/' + file.name,
-          true,
-          (err2, content) => {
-            if (err2) {
-              console.log(err2); // we can't have the data, for some reason
-              return;
+    repo.getContents(
+      'dev/dparkar/firstmarkdown/ta38',
+      'content',
+      true,
+      (err1, files) => {
+        if (err1) {
+          console.log(err1); // we can't get the data, for some reason
+          return;
+        }
+        // go through each file in the folder
+        files.forEach(function(file) {
+          repo.getContents(
+            'master',
+            'content/' + file.name,
+            true,
+            (err2, content) => {
+              if (err2) {
+                console.log(err2); // we can't have the data, for some reason
+                return;
+              }
+              console.log(content);
+              this.setState({ logs: content });
             }
-            console.log(content);
-            this.setState({ logs: content });
-          }
-        );
-      }, this);
-    });
+          );
+        }, this);
+      }
+    );
     // Update state
     this.state = {
       //repoName: repoName,
