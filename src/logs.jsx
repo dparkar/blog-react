@@ -4,40 +4,40 @@ import GitHub from 'github-api';
 import ReactMarkdown from 'react-markdown';
 import './logs.css';
 
+const user = 'dparkar';
+const repoName = 'blog-react';
+const repoBranch = 'master';
+const repoLogsFolder = 'content';
+
 export default class Logs extends TrackedComponent {
   constructor(props) {
     super(props);
     var gh = new GitHub();
     // get the repo
-    var repo = gh.getRepo('dparkar', 'blog-react');
+    var repo = gh.getRepo(user, repoName);
     // get the folder contents
-    repo.getContents(
-      'dev/dparkar/firstmarkdown/ta38',
-      'content',
-      true,
-      (err1, files) => {
-        if (err1) {
-          console.log(err1); // we can't get the data, for some reason
-          return;
-        }
-        // go through each file in the folder
-        files.forEach(function(file) {
-          repo.getContents(
-            'master',
-            'content/' + file.name,
-            true,
-            (err2, content) => {
-              if (err2) {
-                console.log(err2); // we can't have the data, for some reason
-                return;
-              }
-              console.log(content);
-              this.setState({ logs: content });
-            }
-          );
-        }, this);
+    repo.getContents(repoBranch, repoLogsFolder, true, (err1, files) => {
+      if (err1) {
+        console.log(err1); // we can't get the data, for some reason
+        return;
       }
-    );
+      // go through each file in the folder
+      files.forEach(function(file) {
+        repo.getContents(
+          repoBranch,
+          repoLogsFolder + '/' + file.name,
+          true,
+          (err2, content) => {
+            if (err2) {
+              console.log(err2); // we can't have the data, for some reason
+              return;
+            }
+            console.log(content);
+            this.setState({ logs: content });
+          }
+        );
+      }, this);
+    });
     // Update state
     this.state = {
       //repoName: repoName,
