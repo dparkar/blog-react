@@ -9,8 +9,7 @@ import './logs.css';
 let repo;
 const user = 'dparkar';
 const repoName = 'blog-react';
-//const repoBranch = 'master';
-const repoBranch = 'dev/dparkar/multipleposts/ta41';
+const repoBranch = 'master';
 const repoContentPath = 'content';
 const repoLogsMetadataFile = 'logs.json';
 
