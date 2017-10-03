@@ -17,7 +17,7 @@ export default class Logs extends TrackedComponent {
     var gh = new GitHub();
     // get the repo
     var repo = gh.getRepo(user, repoName);
-    // get the folder contents
+    // get the logs metadata
     repo.getContents(
       repoBranch,
       repoContentPath + '/' + repoLogsMetadataFile,
@@ -49,7 +49,6 @@ export default class Logs extends TrackedComponent {
     );
     // Update state
     this.state = {
-      //repoName: repoName,
       logs: []
     };
   }
@@ -63,7 +62,13 @@ export default class Logs extends TrackedComponent {
         logTitles.push(
           <a
             href={
-              'https://github.com/dparkar/blog-react/blob/dev/dparkar/multipleposts/ta41/' +
+              'https://github.com/' +
+              user +
+              '/' +
+              repoName +
+              '/blob/' +
+              repoBranch +
+              '/' +
               repoContentPath +
               '/' +
               log.filename
@@ -73,7 +78,7 @@ export default class Logs extends TrackedComponent {
           </a>
         );
         logTitles.push(<br />);
-        logTitles.push('Tags : ' + log.tags);
+        logTitles.push('[' + log.tags + ']');
         logTitles.push(<br />);
         return logTitles;
       });
