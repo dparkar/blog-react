@@ -2,6 +2,7 @@ import React from 'react';
 import { TrackedComponent } from 'react-appinsights';
 import GitHub from 'github-api';
 import ReactMarkdown from 'react-markdown';
+import { Collapse } from 'react-collapse';
 import './logs.css';
 
 const user = 'dparkar';
@@ -59,26 +60,14 @@ export default class Logs extends TrackedComponent {
       logTitles.push(<p>retrieving logs ...</p>);
     } else {
       this.state.logs.map(log => {
-        logTitles.push(
-          <a
-            href={
-              'https://github.com/' +
-              user +
-              '/' +
-              repoName +
-              '/blob/' +
-              repoBranch +
-              '/' +
-              repoContentPath +
-              '/' +
-              log.filename
-            }
-          >
-            {log.datetime + '_' + log.title}
-          </a>
-        );
         logTitles.push(<br />);
-        logTitles.push('[' + log.tags + ']');
+        logTitles.push(
+          <Collapse isOpened={true}>
+            {log.datetime + '_' + log.title}
+            <br />
+            {'[' + log.tags + ']'}
+          </Collapse>
+        );
         logTitles.push(<br />);
         return logTitles;
       });
