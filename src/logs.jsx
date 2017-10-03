@@ -56,32 +56,27 @@ export default class Logs extends TrackedComponent {
     console.log('focussed');
   }
   render() {
-    var logTitles = [];
+    let logTitles;
     if (this.state.logs.length === 0) {
-      logTitles.push(<p>retrieving logs ...</p>);
+      logTitles = <p>retrieving logs ...</p>;
     } else {
-      this.state.logs.map(log => {
-        logTitles.push(<br />);
-        logTitles.push(
+      logTitles = this.state.logs.map(log =>
+        <div key={log.datetime}>
+          <br />
           <Collapse isOpened={true} onFocus={this.handleFocus}>
             {log.datetime + '_' + log.title}
             <br />
             {'[' + log.tags + ']'}
           </Collapse>
-        );
-        logTitles.push(<br />);
-        return logTitles;
-      });
+          <br />
+        </div>
+      );
     }
 
     return (
       <div className="Logs">
         {logTitles}
         <p>work in progress ...</p>
-        {/*}<img
-          src="https://i.makeagif.com/media/10-27-2015/_jDzHB.gif"
-          alt="work in progress"
-        />{*/}
         <p>
           See code here : {' '}
           <a href="https://github.com/dparkar/blog-react">
