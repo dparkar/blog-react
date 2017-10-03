@@ -28,7 +28,6 @@ export default class Logs extends TrackedComponent {
           console.log(err); // we can't get the data, for some reason
           return;
         }
-        console.log(logs);
         this.setState({ logs: logs });
         // // go through each file in the folder
         // files.forEach(function(file) {
@@ -53,7 +52,9 @@ export default class Logs extends TrackedComponent {
       logs: []
     };
   }
-
+  handleFocus(e) {
+    console.log('focussed');
+  }
   render() {
     var logTitles = [];
     if (this.state.logs.length === 0) {
@@ -62,7 +63,7 @@ export default class Logs extends TrackedComponent {
       this.state.logs.map(log => {
         logTitles.push(<br />);
         logTitles.push(
-          <Collapse isOpened={true}>
+          <Collapse isOpened={true} onFocus={this.handleFocus}>
             {log.datetime + '_' + log.title}
             <br />
             {'[' + log.tags + ']'}
@@ -77,10 +78,10 @@ export default class Logs extends TrackedComponent {
       <div className="Logs">
         {logTitles}
         <p>work in progress ...</p>
-        <img
+        {/*}<img
           src="https://i.makeagif.com/media/10-27-2015/_jDzHB.gif"
           alt="work in progress"
-        />
+        />{*/}
         <p>
           See code here : {' '}
           <a href="https://github.com/dparkar/blog-react">
