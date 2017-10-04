@@ -1,15 +1,28 @@
 .ReactCollapse--collapse {
     max-width: auto;
-    border: 1px solid rgba(3, 169, 244, 0.3);
-    border-radius: 10px;
+    border: 1px solid cyan;
+    border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.5);
-    margin-left: auto ;
-    margin-right: auto ;
     margin-top: 1%;
     margin-left: 1%;
     margin-right: 1%;
+    margin-bottom: 1%;
     cursor: pointer;
   }
   .ReactCollapse--collapse:hover {
-      border-color: cyan;
+      border-color: greenyellow;
   }
+  .logdatetime {
+      float: left;
+      margin-left:1%;
+      cursor: pointer;
+  }
+  .logtitle {
+    float: center;
+    cursor: pointer;
+}
+.logtags {
+    float: right;
+    margin-right:1%;
+    cursor: pointer;
+}

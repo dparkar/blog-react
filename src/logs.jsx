@@ -101,7 +101,15 @@ export default class Logs extends TrackedComponent {
               data-id={log.datetime}
               springConfig={presets.wobbly}
             >
-              {log.datetime + '_' + log.title} {'[' + log.tags + ']'}
+              <label className="logdatetime">
+                {log.datetime}
+              </label>
+              <label className="logtitle">
+                {log.title}
+              </label>
+              <label className="logtags">
+                {'[' + log.tags + ']'}
+              </label>
               <ReactMarkdown source={log.content} />
             </Collapse>
           );
@@ -114,7 +122,15 @@ export default class Logs extends TrackedComponent {
               data-id={log.datetime}
               springConfig={presets.wobbly}
             >
-              {log.datetime + '_' + log.title} {'[' + log.tags + ']'}
+              <label className="logdatetime">
+                {log.datetime}
+              </label>
+              <label className="logtitle">
+                {log.title}
+              </label>
+              <label className="logtags">
+                {'[' + log.tags + ']'}
+              </label>
             </Collapse>
           );
         }
@@ -124,13 +140,6 @@ export default class Logs extends TrackedComponent {
     return (
       <div className="Logs">
         {logTitles}
-        <p>work in progress ...</p>
-        <p>
-          See code here : {' '}
-          <a href="https://github.com/dparkar/blog-react">
-            https://github.com/dparkar/blog-react
-          </a>
-        </p>
       </div>
     );
   }

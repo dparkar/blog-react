@@ -44,7 +44,9 @@ export default class Page extends TrackedComponent {
           </div>
           {React.createElement(sec)}
           <div className="Page-footer">
-            <img src={logo} className="Page-logo" alt="logo" />
+            <a href="https://github.com/dparkar/blog-react">
+              <img src={logo} className="Page-logo" alt="logo" />
+            </a>
           </div>
         </main>
       </div>
