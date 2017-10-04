@@ -36,11 +36,11 @@ export default class Page extends TrackedComponent {
             {title} | Dhawal Parkar
           </title>
           <div className="Page-header">
-            <label> Dhawal Parkar logs ...</label>
-            <p>
+            <label className="Page-header-title"> Dhawal Parkar logs ...</label>
+            <label className="Page-header-describe">
               Artificial Intelligence, Deep Learning, Robotics, GPGPU,
               Microservices
-            </p>
+            </label>
           </div>
           {React.createElement(sec)}
           <div className="Page-footer">
