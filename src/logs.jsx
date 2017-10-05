@@ -33,7 +33,7 @@ export default class Logs extends TrackedComponent {
           log['selected'] = false;
           log['content'] = '';
         }, this);
-        logs[0]['selected'] = true;
+        //logs[0]['selected'] = true;
         repo.getContents(
           repoBranch,
           repoContentPath + '/' + logs[0].filename,
@@ -87,11 +87,24 @@ export default class Logs extends TrackedComponent {
     }
   };
   render() {
-    let logTitles;
+    let logs;
     if (this.state.logs.length === 0) {
-      logTitles = <p>retrieving logs ...</p>;
+      logs = <p>retrieving logs ...</p>;
     } else {
-      logTitles = this.state.logs.map(log => {
+      logs = this.state.logs.map(log => {
+        let logMetadata = (
+          <div className="logmetadata">
+            <label className="logdatetime">
+              {log.datetime}
+            </label>
+            <label className="logtitle">
+              {log.title}
+            </label>
+            <label className="logtags">
+              {'[' + log.tags + ']'}
+            </label>
+          </div>
+        );
         if (log.selected) {
           return (
             <Collapse
@@ -101,15 +114,7 @@ export default class Logs extends TrackedComponent {
               data-id={log.datetime}
               springConfig={presets.wobbly}
             >
-              <label className="logdatetime">
-                {log.datetime}
-              </label>
-              <label className="logtitle">
-                {log.title}
-              </label>
-              <label className="logtags">
-                {'[' + log.tags + ']'}
-              </label>
+              {logMetadata}
               <ReactMarkdown source={log.content} />
             </Collapse>
           );
@@ -122,15 +127,7 @@ export default class Logs extends TrackedComponent {
               data-id={log.datetime}
               springConfig={presets.wobbly}
             >
-              <label className="logdatetime">
-                {log.datetime}
-              </label>
-              <label className="logtitle">
-                {log.title}
-              </label>
-              <label className="logtags">
-                {'[' + log.tags + ']'}
-              </label>
+              {logMetadata}
             </Collapse>
           );
         }
@@ -139,7 +136,7 @@ export default class Logs extends TrackedComponent {
 
     return (
       <div className="Logs">
-        {logTitles}
+        {logs}
       </div>
     );
   }

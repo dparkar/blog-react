@@ -20,7 +20,11 @@ export default class Page extends TrackedComponent {
 
     return (
       <div className="Page" id="outer-container">
-        <Menu pageWrapId={'page-wrap'} outerContainerId={'outer-container'}>
+        <Menu
+          pageWrapId={'page-wrap'}
+          outerContainerId={'outer-container'}
+          width={'10%'}
+        >
           <a id="logs" className="menu-item" href="/">
             Logs
           </a>

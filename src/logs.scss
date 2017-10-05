@@ -12,9 +12,11 @@
   .ReactCollapse--collapse:hover {
       border-color: cyan;
   }
+  .logmetadata {
+      padding:1%;
+  }
   .logdatetime {
       float: left;
-      margin-left:1%;
       cursor: pointer;
   }
   .logtitle {
@@ -23,6 +25,5 @@
 }
 .logtags {
     float: right;
-    margin-right:1%;
     cursor: pointer;
 }
