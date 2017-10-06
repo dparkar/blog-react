@@ -19,42 +19,44 @@ export default class Page extends TrackedComponent {
     }
 
     return (
-      <div className="Page" id="outer-container">
-        <Menu
-          pageWrapId={'page-wrap'}
-          outerContainerId={'outer-container'}
-          width={'10%'}
-        >
-          <a id="logs" className="menu-item" href="/">
-            Logs
-          </a>
-          <a id="stats" className="menu-item" href="/stats">
-            Stats
-          </a>
-          <a id="about" className="menu-item" href="/about">
-            About
-          </a>
-        </Menu>
-        <main id="page-wrap">
-          <title>
-            {title} | Dhawal Parkar
-          </title>
-          <div className="Page-header">
-            <label className="Page-header-title">Dhawal Parkar logs ...</label>
-            <label className="Page-header-describe">
-              Artificial Intelligence, Deep Learning, Robotics, GPGPU,
-              Microservices
-            </label>
-          </div>
-          <div className="Page-content">
-            {React.createElement(sec)}
-          </div>
-          <div className="Page-footer">
-            <a href="https://github.com/dparkar/blog-react">
-              <img src={logo} className="Page-logo" alt="logo" />
+      <div className="Page">
+        <title>
+          {title} | Dhawal Parkar
+        </title>
+        <div className="Page-header">
+          <label className="Page-header-title">Dhawal Parkar logs ...</label>
+          <label className="Page-header-describe">
+            Artificial Intelligence, Deep Learning, Robotics, GPGPU,
+            Microservices
+          </label>
+        </div>
+        <div id="outer-container">
+          <Menu
+            pageWrapId={'page-wrap'}
+            outerContainerId={'outer-container'}
+            width={'10%'}
+          >
+            <a id="logs" className="menu-item" href="/">
+              Logs
             </a>
-          </div>
-        </main>
+            <a id="stats" className="menu-item" href="/stats">
+              Stats
+            </a>
+            <a id="about" className="menu-item" href="/about">
+              About
+            </a>
+          </Menu>
+          <main id="page-wrap">
+            <div className="Page-content">
+              {React.createElement(sec)}
+            </div>
+          </main>
+        </div>
+        <div className="Page-footer">
+          <a href="https://github.com/dparkar/blog-react">
+            <img src={logo} className="Page-logo" alt="logo" />
+          </a>
+        </div>
       </div>
     );
   }
