@@ -23,13 +23,6 @@ export default class Page extends TrackedComponent {
         <title>
           {title} | Dhawal Parkar
         </title>
-        <div className="Page-header">
-          <label className="Page-header-title">Dhawal Parkar logs ...</label>
-          <label className="Page-header-describe">
-            Artificial Intelligence, Deep Learning, Robotics, GPGPU,
-            Microservices
-          </label>
-        </div>
         <div id="outer-container">
           <Menu
             pageWrapId={'page-wrap'}
@@ -47,15 +40,24 @@ export default class Page extends TrackedComponent {
             </a>
           </Menu>
           <main id="page-wrap">
+            <div className="Page-header">
+              <label className="Page-header-title">
+                Dhawal Parkar logs ...
+              </label>
+              <label className="Page-header-describe">
+                Artificial Intelligence, Deep Learning, Robotics, GPGPU,
+                Microservices
+              </label>
+            </div>
             <div className="Page-content">
               {React.createElement(sec)}
             </div>
+            <div className="Page-footer">
+              <a href="https://github.com/dparkar/blog-react">
+                <img src={logo} className="Page-logo" alt="logo" />
+              </a>
+            </div>
           </main>
-        </div>
-        <div className="Page-footer">
-          <a href="https://github.com/dparkar/blog-react">
-            <img src={logo} className="Page-logo" alt="logo" />
-          </a>
         </div>
       </div>
     );
