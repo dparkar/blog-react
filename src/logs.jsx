@@ -103,15 +103,16 @@ export default class Logs extends TrackedComponent {
       logs = this.state.logs.map(log => {
         let logMetadata = (
           <div className="logmetadata">
-            <label className="logdatetime">
+            <div className="logdatetime">
               {log.datetime}
-            </label>
-            <label className="logtitle">
-              {log.title}
-            </label>
-            <label className="logtags">
+            </div>
+            <div className="logtags">
               {'[' + log.tags + ']'}
-            </label>
+            </div>
+            <div className="logtitle">
+              {log.title}
+            </div>
+            <div className="clearboth" />
           </div>
         );
         if (log.selected) {

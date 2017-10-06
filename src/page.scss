@@ -14,18 +14,10 @@
     padding: 2%;
     color: white;
   }
-  
-  .Page-header-title {
-    float: left;
-    margin-left: 3%;
-  }
-
-  .Page-header-describe {
-    float: right;
-  }
 
   .Page-content {
     padding: 1px;
+    min-height: 640px;
   }
 
   .Page-footer {
@@ -41,6 +33,7 @@
   }
   
 /* Position and sizing of burger button */
+@media (min-width: 768px) {
 .bm-burger-button {
     position: fixed;
     width: 20px;
@@ -48,7 +41,16 @@
     left: 20px;
     top: 20px;
   }
-  
+}
+@media (max-width: 767px) {
+  .bm-burger-button {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      left: 10px;
+      top: 10px;
+    }
+  }
   /* Color/shape of burger icon bars */
   .bm-burger-bars {
     background: white;

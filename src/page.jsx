@@ -25,29 +25,24 @@ export default class Page extends TrackedComponent {
         </title>
         <div id="outer-container">
           <Menu
+            className="menu"
             pageWrapId={'page-wrap'}
             outerContainerId={'outer-container'}
-            width={'10%'}
+            width={'25%'}
           >
             <a id="logs" className="menu-item" href="/">
-              Logs
+              logs
             </a>
             <a id="stats" className="menu-item" href="/stats">
-              Stats
+              stats
             </a>
             <a id="about" className="menu-item" href="/about">
-              About
+              about
             </a>
           </Menu>
           <main id="page-wrap">
             <div className="Page-header">
-              <label className="Page-header-title">
-                Dhawal Parkar logs ...
-              </label>
-              <label className="Page-header-describe">
-                Artificial Intelligence, Deep Learning, Robotics, GPGPU,
-                Microservices
-              </label>
+              <b>d</b>hawal <b>p</b>arkar <b>logs</b> ...
             </div>
             <div className="Page-content">
               {React.createElement(sec)}
