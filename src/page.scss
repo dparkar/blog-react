@@ -1,10 +1,11 @@
 .Page {
     text-align: center;
+    background-color: #222;
   }
   
   .Page-logo {
     animation: Page-logo-spin infinite 20s linear;
-    height: 30px;
+    height:30px;
   }
   
   .Page-header {
@@ -13,16 +14,16 @@
     padding: 2%;
     color: white;
   }
-  
+
   .Page-content {
-    height: 80%;
-    padding: 2%;
+    padding: 1px;
+    height:100vh;
   }
-  
+
   .Page-footer {
     background-color: #222;
     height: 20%;
-    padding: 2%;
+    padding: 1%;
     color: white;
   }
 
@@ -32,6 +33,7 @@
   }
   
 /* Position and sizing of burger button */
+@media (min-width: 768px) {
 .bm-burger-button {
     position: fixed;
     width: 20px;
@@ -39,7 +41,16 @@
     left: 20px;
     top: 20px;
   }
-  
+}
+@media (max-width: 767px) {
+  .bm-burger-button {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      left: 10px;
+      top: 10px;
+    }
+  }
   /* Color/shape of burger icon bars */
   .bm-burger-bars {
     background: white;
@@ -59,6 +70,12 @@
   /* General sidebar styles */
   .bm-menu {
     background: #222;
+    padding: 2.5em 1.5em 0;
+    font-size: 1.15em;
+  }
+
+  .bm-menu-wrap {
+    background: #222;
   }
   
   /* Morph shape necessary with bubble or elastic */
@@ -76,8 +93,14 @@
     background: rgba(0, 0, 0, 0.3);
   }
 
-  a:any-link{
-    color: #F75959;
+  .menu-item{
+    color:white;
     text-decoration: none;
-}
+    padding-top: 5%;
+    padding-bottom: 5%;
+  }
+  
+  .menu-item:hover{
+    background-color: grey;
+  }
     

@@ -55,16 +55,26 @@ export default class Logs extends TrackedComponent {
       logs: []
     };
   }
+
   handleClick = e => {
-    var logIndex = this.state.logs.findIndex(
+    var logs = this.state.logs;
+
+    var logIndex = logs.findIndex(
       log => log.datetime === e.currentTarget.dataset.id
     );
-    var logs = this.state.logs;
-    logs.forEach(function(log) {
-      log['selected'] = false;
-    }, this);
-    var log = this.state.logs[logIndex];
-    if (log.content === '') {
+
+    var log = logs[logIndex];
+
+    if (log.selected === true) {
+      log.selected = false;
+    } else {
+      logs.forEach(function(log) {
+        log.selected = false;
+      }, this);
+      log.selected = true;
+    }
+
+    if (log.selected && log.content === '') {
       repo.getContents(
         repoBranch,
         repoContentPath + '/' + log.filename,
@@ -75,23 +85,36 @@ export default class Logs extends TrackedComponent {
             return;
           }
           log.content = content;
-          log.selected = true;
           logs[logIndex] = log;
           this.setState({ logs: logs });
         }
       );
-    } else {
-      log.selected = true;
-      logs[logIndex] = log;
-      this.setState({ logs: logs });
     }
+
+    logs[logIndex] = log;
+    this.setState({ logs: logs });
   };
+
   render() {
-    let logTitles;
+    let logs;
     if (this.state.logs.length === 0) {
-      logTitles = <p>retrieving logs ...</p>;
+      logs = <p>retrieving logs ...</p>;
     } else {
-      logTitles = this.state.logs.map(log => {
+      logs = this.state.logs.map(log => {
+        let logMetadata = (
+          <div className="logmetadata">
+            <div className="logdatetime">
+              {log.datetime}
+            </div>
+            <div className="logtags">
+              {'[' + log.tags + ']'}
+            </div>
+            <div className="logtitle">
+              {log.title}
+            </div>
+            <div className="clearboth" />
+          </div>
+        );
         if (log.selected) {
           return (
             <Collapse
@@ -101,7 +124,7 @@ export default class Logs extends TrackedComponent {
               data-id={log.datetime}
               springConfig={presets.wobbly}
             >
-              {log.datetime + '_' + log.title} {'[' + log.tags + ']'}
+              {logMetadata}
               <ReactMarkdown source={log.content} />
             </Collapse>
           );
@@ -114,7 +137,7 @@ export default class Logs extends TrackedComponent {
               data-id={log.datetime}
               springConfig={presets.wobbly}
             >
-              {log.datetime + '_' + log.title} {'[' + log.tags + ']'}
+              {logMetadata}
             </Collapse>
           );
         }
@@ -123,14 +146,7 @@ export default class Logs extends TrackedComponent {
 
     return (
       <div className="Logs">
-        {logTitles}
-        <p>work in progress ...</p>
-        <p>
-          See code here : {' '}
-          <a href="https://github.com/dparkar/blog-react">
-            https://github.com/dparkar/blog-react
-          </a>
-        </p>
+        {logs}
       </div>
     );
   }

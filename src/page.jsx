@@ -19,34 +19,41 @@ export default class Page extends TrackedComponent {
     }
 
     return (
-      <div className="Page" id="outer-container">
-        <Menu pageWrapId={'page-wrap'} outerContainerId={'outer-container'}>
-          <a id="logs" className="menu-item" href="/">
-            Logs
-          </a>
-          <a id="stats" className="menu-item" href="/stats">
-            Stats
-          </a>
-          <a id="about" className="menu-item" href="/about">
-            About
-          </a>
-        </Menu>
-        <main id="page-wrap">
-          <title>
-            {title} | Dhawal Parkar
-          </title>
-          <div className="Page-header">
-            <label> Dhawal Parkar logs ...</label>
-            <p>
-              Artificial Intelligence, Deep Learning, Robotics, GPGPU,
-              Microservices
-            </p>
-          </div>
-          {React.createElement(sec)}
-          <div className="Page-footer">
-            <img src={logo} className="Page-logo" alt="logo" />
-          </div>
-        </main>
+      <div className="Page">
+        <title>
+          {title.toLowerCase()} | dhawal parkar
+        </title>
+        <div id="outer-container">
+          <Menu
+            className="menu"
+            pageWrapId={'page-wrap'}
+            outerContainerId={'outer-container'}
+            width={'20vh'}
+          >
+            <a id="logs" className="menu-item" href="/">
+              logs
+            </a>
+            <a id="stats" className="menu-item" href="/stats">
+              stats
+            </a>
+            <a id="about" className="menu-item" href="/about">
+              about
+            </a>
+          </Menu>
+          <main id="page-wrap">
+            <div className="Page-header">
+              <b>d</b>hawal <b>p</b>arkar <b>logs</b> ...
+            </div>
+            <div className="Page-content">
+              {React.createElement(sec)}
+            </div>
+            <div className="Page-footer">
+              <a href="https://github.com/dparkar/blog-react">
+                <img src={logo} className="Page-logo" alt="logo" />
+              </a>
+            </div>
+          </main>
+        </div>
       </div>
     );
   }
