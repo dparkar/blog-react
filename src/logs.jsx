@@ -33,7 +33,7 @@ export default class Logs extends TrackedComponent {
           log['selected'] = false;
           log['content'] = '';
         }, this);
-        //logs[0]['selected'] = true;
+        logs[0]['selected'] = true;
         repo.getContents(
           repoBranch,
           repoContentPath + '/' + logs[0].filename,
@@ -55,16 +55,26 @@ export default class Logs extends TrackedComponent {
       logs: []
     };
   }
+
   handleClick = e => {
-    var logIndex = this.state.logs.findIndex(
+    var logs = this.state.logs;
+
+    var logIndex = logs.findIndex(
       log => log.datetime === e.currentTarget.dataset.id
     );
-    var logs = this.state.logs;
-    logs.forEach(function(log) {
-      log['selected'] = false;
-    }, this);
-    var log = this.state.logs[logIndex];
-    if (log.content === '') {
+
+    var log = logs[logIndex];
+
+    if (log.selected === true) {
+      log.selected = false;
+    } else {
+      logs.forEach(function(log) {
+        log.selected = false;
+      }, this);
+      log.selected = true;
+    }
+
+    if (log.selected && log.content === '') {
       repo.getContents(
         repoBranch,
         repoContentPath + '/' + log.filename,
@@ -75,17 +85,16 @@ export default class Logs extends TrackedComponent {
             return;
           }
           log.content = content;
-          log.selected = true;
           logs[logIndex] = log;
           this.setState({ logs: logs });
         }
       );
-    } else {
-      log.selected = true;
-      logs[logIndex] = log;
-      this.setState({ logs: logs });
     }
+
+    logs[logIndex] = log;
+    this.setState({ logs: logs });
   };
+
   render() {
     let logs;
     if (this.state.logs.length === 0) {
