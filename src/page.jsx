@@ -21,7 +21,7 @@ export default class Page extends TrackedComponent {
     return (
       <div className="Page">
         <title>
-          {title} | Dhawal Parkar
+          {title.toLowerCase()} | dhawal parkar
         </title>
         <div id="outer-container">
           <Menu
