@@ -8,21 +8,34 @@ import About from './about.jsx';
 import Err from './err.jsx';
 import './page.css';
 
-const Sections = { Logs, Stats, About, Err };
+//const Sections = { Logs, Stats, About, Err };
 
 export default class Page extends TrackedComponent {
   render() {
     var title = this.props.title;
-    var sec = Sections[title];
-    if (sec === '') {
-      sec = Sections[Sections.length - 1];
+    var sec = <Err />;
+    switch (title) {
+      case 'Logs':
+        sec = <Logs logtitle={this.props.logtitle} />;
+        break;
+      case 'Stats':
+        sec = <Stats />;
+        break;
+      case 'About':
+        sec = <About />;
+        break;
+      default:
+        sec = <Err />;
     }
+
+    // var sec = Sections[title];
+    // if (sec === '') {
+    //   sec = Sections[Sections.length - 1];
+    // }
 
     return (
       <div className="Page">
-        <title>
-          {title.toLowerCase()} | dhawal parkar
-        </title>
+        <title>{title.toLowerCase()} | dhawal parkar</title>
         <div id="outer-container">
           <Menu
             className="menu"
@@ -44,9 +57,7 @@ export default class Page extends TrackedComponent {
             <div className="Page-header">
               <b>d</b>hawal <b>p</b>arkar <b>logs</b> ...
             </div>
-            <div className="Page-content">
-              {React.createElement(sec)}
-            </div>
+            <div className="Page-content">{sec}</div>
             <div className="Page-footer">
               <a href="https://github.com/dparkar/blog-react">
                 <img src={logo} className="Page-logo" alt="logo" />

@@ -16,6 +16,7 @@ const repoLogsMetadataFile = 'logs.json';
 export default class Logs extends TrackedComponent {
   constructor(props) {
     super(props);
+    console.log(this.props.logtitle);
     var gh = new GitHub();
     // get the repo
     repo = gh.getRepo(user, repoName);
@@ -103,15 +104,9 @@ export default class Logs extends TrackedComponent {
       logs = this.state.logs.map(log => {
         let logMetadata = (
           <div className="logmetadata">
-            <div className="logdatetime">
-              {log.datetime}
-            </div>
-            <div className="logtags">
-              {'[' + log.tags + ']'}
-            </div>
-            <div className="logtitle">
-              {log.title}
-            </div>
+            <div className="logdatetime">{log.datetime}</div>
+            <div className="logtags">{'[' + log.tags + ']'}</div>
+            <div className="logtitle">{log.title}</div>
             <div className="clearboth" />
           </div>
         );
@@ -144,10 +139,6 @@ export default class Logs extends TrackedComponent {
       });
     }
 
-    return (
-      <div className="Logs">
-        {logs}
-      </div>
-    );
+    return <div className="Logs">{logs}</div>;
   }
 }
