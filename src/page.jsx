@@ -7,6 +7,7 @@ import Stats from './stats.jsx';
 import About from './about.jsx';
 import Err from './err.jsx';
 import './page.css';
+import { Link } from 'react-router-dom';
 
 //const Sections = { Logs, Stats, About, Err };
 
@@ -35,7 +36,9 @@ export default class Page extends TrackedComponent {
 
     return (
       <div className="Page">
-        <title>{title.toLowerCase()} | dhawal parkar</title>
+        <title>
+          {title.toLowerCase()} | dhawal parkar
+        </title>
         <div id="outer-container">
           <Menu
             className="menu"
@@ -43,21 +46,23 @@ export default class Page extends TrackedComponent {
             outerContainerId={'outer-container'}
             width={'20vh'}
           >
-            <a id="logs" className="menu-item" href="/">
+            <Link id="logs" className="menu-item" to="/">
               logs
-            </a>
-            <a id="stats" className="menu-item" href="/stats">
+            </Link>
+            <Link id="stats" className="menu-item" to="/stats">
               stats
-            </a>
-            <a id="about" className="menu-item" href="/about">
+            </Link>
+            <Link id="about" className="menu-item" to="/about">
               about
-            </a>
+            </Link>
           </Menu>
           <main id="page-wrap">
             <div className="Page-header">
               <b>d</b>hawal <b>p</b>arkar <b>logs</b> ...
             </div>
-            <div className="Page-content">{sec}</div>
+            <div className="Page-content">
+              {sec}
+            </div>
             <div className="Page-footer">
               <a href="https://github.com/dparkar/blog-react">
                 <img src={logo} className="Page-logo" alt="logo" />
