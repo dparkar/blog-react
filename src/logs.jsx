@@ -30,24 +30,42 @@ export default class Logs extends TrackedComponent {
           console.log(err); // we can't get the data, for some reason
           return;
         }
+
+        var logtitle = this.props.logtitle;
+        var logindex = 0;
+        var selectedlogindex;
         logs.forEach(function(log) {
-          log['selected'] = false;
-          log['content'] = '';
-        }, this);
-        logs[0]['selected'] = true;
-        repo.getContents(
-          repoBranch,
-          repoContentPath + '/' + logs[0].filename,
-          true,
-          (err, content) => {
-            if (err) {
-              console.log(err); // we can't have the data, for some reason
-              return;
-            }
-            logs[0].content = content;
-            this.setState({ logs: logs });
+          if (log['title'] === logtitle) {
+            log['selected'] = true;
+            selectedlogindex = logindex;
+          } else if (logtitle === undefined && logindex === 0) {
+            log['selected'] = true;
+            selectedlogindex = logindex;
+          } else {
+            log['selected'] = false;
           }
-        );
+
+          log['content'] = '';
+
+          logindex++;
+        }, this);
+
+        if (selectedlogindex !== undefined) {
+          repo.getContents(
+            repoBranch,
+            repoContentPath + '/' + logs[selectedlogindex].filename,
+            true,
+            (err, content) => {
+              if (err) {
+                console.log(err); // we can't have the data, for some reason
+                return;
+              }
+              logs[selectedlogindex].content = content;
+              this.setState({ logs: logs });
+            }
+          );
+        }
+
         this.setState({ logs: logs });
       }
     );
@@ -104,9 +122,15 @@ export default class Logs extends TrackedComponent {
       logs = this.state.logs.map(log => {
         let logMetadata = (
           <div className="logmetadata">
-            <div className="logdatetime">{log.datetime}</div>
-            <div className="logtags">{'[' + log.tags + ']'}</div>
-            <div className="logtitle">{log.title}</div>
+            <div className="logdatetime">
+              {log.datetime}
+            </div>
+            <div className="logtags">
+              {'[' + log.tags + ']'}
+            </div>
+            <div className="logtitle">
+              {log.title}
+            </div>
             <div className="clearboth" />
           </div>
         );
@@ -139,6 +163,10 @@ export default class Logs extends TrackedComponent {
       });
     }
 
-    return <div className="Logs">{logs}</div>;
+    return (
+      <div className="Logs">
+        {logs}
+      </div>
+    );
   }
 }
