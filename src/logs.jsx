@@ -64,6 +64,8 @@ export default class Logs extends TrackedComponent {
               this.setState({ logs: logs });
             }
           );
+        } else {
+          // notify
         }
 
         this.setState({ logs: logs });
