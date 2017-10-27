@@ -16,7 +16,6 @@ const repoLogsMetadataFile = 'logs.json';
 export default class Logs extends TrackedComponent {
   constructor(props) {
     super(props);
-    console.log(this.props.logtitle);
     var gh = new GitHub();
     // get the repo
     repo = gh.getRepo(user, repoName);
@@ -33,7 +32,7 @@ export default class Logs extends TrackedComponent {
 
         var logtitle = this.props.logtitle;
         var logindex = 0;
-        var selectedlogindex;
+        var selectedlogindex = null;
         logs.forEach(function(log) {
           if (log['title'] === logtitle) {
             log['selected'] = true;
@@ -50,7 +49,7 @@ export default class Logs extends TrackedComponent {
           logindex++;
         }, this);
 
-        if (selectedlogindex !== undefined) {
+        if (selectedlogindex !== null) {
           repo.getContents(
             repoBranch,
             repoContentPath + '/' + logs[selectedlogindex].filename,
@@ -61,6 +60,7 @@ export default class Logs extends TrackedComponent {
                 return;
               }
               logs[selectedlogindex].content = content;
+
               this.setState({ logs: logs });
             }
           );
@@ -73,7 +73,8 @@ export default class Logs extends TrackedComponent {
     );
     // Intialize state
     this.state = {
-      logs: []
+      logs: [],
+      firstload: false
     };
   }
 
@@ -138,16 +139,18 @@ export default class Logs extends TrackedComponent {
         );
         if (log.selected) {
           return (
-            <Collapse
-              key={log.datetime}
-              isOpened={true}
-              onClick={this.handleClick}
-              data-id={log.datetime}
-              springConfig={presets.wobbly}
-            >
-              {logMetadata}
-              <ReactMarkdown source={log.content} />
-            </Collapse>
+            <div ref={el => (this.selecteddiv = el)}>
+              <Collapse
+                key={log.datetime}
+                isOpened={true}
+                onClick={this.handleClick}
+                data-id={log.datetime}
+                springConfig={presets.wobbly}
+              >
+                {logMetadata}
+                <ReactMarkdown source={log.content} />
+              </Collapse>
+            </div>
           );
         } else {
           return (
@@ -170,5 +173,14 @@ export default class Logs extends TrackedComponent {
         {logs}
       </div>
     );
+  }
+
+  componentDidUpdate() {
+    if (this.selecteddiv !== null && this.selecteddiv !== undefined) {
+      this.selecteddiv.scrollIntoView(true, {
+        block: 'start',
+        behavior: 'smooth'
+      });
+    }
   }
 }
