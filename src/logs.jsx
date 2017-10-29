@@ -33,10 +33,12 @@ export default class Logs extends TrackedComponent {
         var logtitle = this.props.logtitle;
         var logindex = 0;
         var selectedlogindex = null;
+        var directtolog = false;
         logs.forEach(function(log) {
           if (log['title'] === logtitle) {
             log['selected'] = true;
             selectedlogindex = logindex;
+            directtolog = true;
           } else if (logtitle === undefined && logindex === 0) {
             log['selected'] = true;
             selectedlogindex = logindex;
@@ -61,20 +63,20 @@ export default class Logs extends TrackedComponent {
               }
               logs[selectedlogindex].content = content;
 
-              this.setState({ logs: logs });
+              this.setState({ logs: logs, directtolog: directtolog });
             }
           );
         } else {
           // notify
         }
 
-        this.setState({ logs: logs });
+        this.setState({ logs: logs, directtolog: directtolog });
       }
     );
     // Intialize state
     this.state = {
       logs: [],
-      firstload: false
+      directtolog: false
     };
   }
 
@@ -108,13 +110,13 @@ export default class Logs extends TrackedComponent {
           }
           log.content = content;
           logs[logIndex] = log;
-          this.setState({ logs: logs });
+          this.setState({ logs: logs, directtolog: false });
         }
       );
     }
 
     logs[logIndex] = log;
-    this.setState({ logs: logs });
+    this.setState({ logs: logs, directtolog: false });
   };
 
   render() {
@@ -176,7 +178,11 @@ export default class Logs extends TrackedComponent {
   }
 
   componentDidUpdate() {
-    if (this.selecteddiv !== null && this.selecteddiv !== undefined) {
+    if (
+      this.selecteddiv !== null &&
+      this.selecteddiv !== undefined &&
+      this.state.directtolog
+    ) {
       this.selecteddiv.scrollIntoView(true, {
         block: 'start',
         behavior: 'smooth'
