@@ -4,6 +4,8 @@ import GitHub from 'github-api';
 import ReactMarkdown from 'react-markdown';
 import { Collapse } from 'react-collapse';
 import { presets } from 'react-motion';
+import Alert from 'react-s-alert';
+
 import './logs.css';
 
 let repo;
@@ -29,30 +31,61 @@ export default class Logs extends TrackedComponent {
           console.log(err); // we can't get the data, for some reason
           return;
         }
+
+        var logtitle = this.props.logtitle;
+        var logindex = 0;
+        var selectedlogindex = null;
+        var directtolog = false;
         logs.forEach(function(log) {
-          log['selected'] = false;
-          log['content'] = '';
-        }, this);
-        logs[0]['selected'] = true;
-        repo.getContents(
-          repoBranch,
-          repoContentPath + '/' + logs[0].filename,
-          true,
-          (err, content) => {
-            if (err) {
-              console.log(err); // we can't have the data, for some reason
-              return;
-            }
-            logs[0].content = content;
-            this.setState({ logs: logs });
+          if (log['title'] === logtitle) {
+            log['selected'] = true;
+            selectedlogindex = logindex;
+            directtolog = true;
+          } else if (logtitle === undefined && logindex === 0) {
+            log['selected'] = true;
+            selectedlogindex = logindex;
+          } else {
+            log['selected'] = false;
           }
-        );
-        this.setState({ logs: logs });
+
+          log['content'] = '';
+
+          logindex++;
+        }, this);
+
+        if (selectedlogindex !== null) {
+          repo.getContents(
+            repoBranch,
+            repoContentPath + '/' + logs[selectedlogindex].filename,
+            true,
+            (err, content) => {
+              if (err) {
+                console.log(err); // we can't have the data, for some reason
+                return;
+              }
+              logs[selectedlogindex].content = content;
+
+              this.setState({ logs: logs, directtolog: directtolog });
+            }
+          );
+        } else {
+          Alert.error(
+            'is that url correct ? log not found : "' + logtitle + '"',
+            {
+              position: 'bottom-right',
+              effect: 'bouncyflip',
+              timeout: 5000
+            }
+          );
+        }
+
+        this.setState({ logs: logs, directtolog: directtolog });
       }
     );
     // Intialize state
     this.state = {
-      logs: []
+      logs: [],
+      directtolog: false
     };
   }
 
@@ -86,13 +119,13 @@ export default class Logs extends TrackedComponent {
           }
           log.content = content;
           logs[logIndex] = log;
-          this.setState({ logs: logs });
+          this.setState({ logs: logs, directtolog: false });
         }
       );
     }
 
     logs[logIndex] = log;
-    this.setState({ logs: logs });
+    this.setState({ logs: logs, directtolog: false });
   };
 
   render() {
@@ -117,16 +150,18 @@ export default class Logs extends TrackedComponent {
         );
         if (log.selected) {
           return (
-            <Collapse
-              key={log.datetime}
-              isOpened={true}
-              onClick={this.handleClick}
-              data-id={log.datetime}
-              springConfig={presets.wobbly}
-            >
-              {logMetadata}
-              <ReactMarkdown source={log.content} />
-            </Collapse>
+            <div ref={el => (this.selecteddiv = el)}>
+              <Collapse
+                key={log.datetime}
+                isOpened={true}
+                onClick={this.handleClick}
+                data-id={log.datetime}
+                springConfig={presets.wobbly}
+              >
+                {logMetadata}
+                <ReactMarkdown source={log.content} />
+              </Collapse>
+            </div>
           );
         } else {
           return (
@@ -149,5 +184,18 @@ export default class Logs extends TrackedComponent {
         {logs}
       </div>
     );
+  }
+
+  componentDidUpdate() {
+    if (
+      this.selecteddiv !== null &&
+      this.selecteddiv !== undefined &&
+      this.state.directtolog
+    ) {
+      this.selecteddiv.scrollIntoView(true, {
+        block: 'start',
+        behavior: 'smooth'
+      });
+    }
   }
 }

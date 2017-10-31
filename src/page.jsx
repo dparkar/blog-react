@@ -7,16 +7,36 @@ import Stats from './stats.jsx';
 import About from './about.jsx';
 import Err from './err.jsx';
 import './page.css';
+import { Link } from 'react-router-dom';
+import Alert from 'react-s-alert';
 
-const Sections = { Logs, Stats, About, Err };
+import './s-alert-default.css';
+import './s-alert-bouncyflip.css';
+
+//const Sections = { Logs, Stats, About, Err };
 
 export default class Page extends TrackedComponent {
   render() {
     var title = this.props.title;
-    var sec = Sections[title];
-    if (sec === '') {
-      sec = Sections[Sections.length - 1];
+    var sec = <Err />;
+    switch (title) {
+      case 'Logs':
+        sec = <Logs logtitle={this.props.logtitle} />;
+        break;
+      case 'Stats':
+        sec = <Stats />;
+        break;
+      case 'About':
+        sec = <About />;
+        break;
+      default:
+        sec = <Err />;
     }
+
+    // var sec = Sections[title];
+    // if (sec === '') {
+    //   sec = Sections[Sections.length - 1];
+    // }
 
     return (
       <div className="Page">
@@ -30,28 +50,33 @@ export default class Page extends TrackedComponent {
             outerContainerId={'outer-container'}
             width={'20vh'}
           >
-            <a id="logs" className="menu-item" href="/">
+            <Link id="logs" className="menu-item" to="/">
               logs
-            </a>
-            <a id="stats" className="menu-item" href="/stats">
+            </Link>
+            <Link id="stats" className="menu-item" to="/stats">
               stats
-            </a>
-            <a id="about" className="menu-item" href="/about">
+            </Link>
+            <Link id="about" className="menu-item" to="/about">
               about
-            </a>
+            </Link>
           </Menu>
           <main id="page-wrap">
             <div className="Page-header">
               <b>d</b>hawal <b>p</b>arkar <b>logs</b> ...
             </div>
             <div className="Page-content">
-              {React.createElement(sec)}
+              {sec}
             </div>
             <div className="Page-footer">
-              <a href="https://github.com/dparkar/blog-react">
+              <a
+                href="https://github.com/dparkar/blog-react"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img src={logo} className="Page-logo" alt="logo" />
               </a>
             </div>
+            <Alert stack={{ limit: 3 }} />
           </main>
         </div>
       </div>
