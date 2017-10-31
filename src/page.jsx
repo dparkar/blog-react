@@ -8,6 +8,10 @@ import About from './about.jsx';
 import Err from './err.jsx';
 import './page.css';
 import { Link } from 'react-router-dom';
+import Alert from 'react-s-alert';
+
+import './s-alert-default.css';
+import './s-alert-bouncyflip.css';
 
 //const Sections = { Logs, Stats, About, Err };
 
@@ -72,6 +76,7 @@ export default class Page extends TrackedComponent {
                 <img src={logo} className="Page-logo" alt="logo" />
               </a>
             </div>
+            <Alert stack={{ limit: 3 }} />
           </main>
         </div>
       </div>

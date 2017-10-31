@@ -4,6 +4,8 @@ import GitHub from 'github-api';
 import ReactMarkdown from 'react-markdown';
 import { Collapse } from 'react-collapse';
 import { presets } from 'react-motion';
+import Alert from 'react-s-alert';
+
 import './logs.css';
 
 let repo;
@@ -67,7 +69,14 @@ export default class Logs extends TrackedComponent {
             }
           );
         } else {
-          // notify
+          Alert.error(
+            'is that url correct ? log not found : "' + logtitle + '"',
+            {
+              position: 'bottom-right',
+              effect: 'bouncyflip',
+              timeout: 5000
+            }
+          );
         }
 
         this.setState({ logs: logs, directtolog: directtolog });
