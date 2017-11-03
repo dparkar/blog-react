@@ -1,5 +1,12 @@
 [
     {
+        "key":3,
+        "datetime":"2017-11-02T21:02:00.000Z",
+        "title":"machinery.ai_developer_conference_(seattle,_wa)",
+        "filename":"2017_11_02_21_02_00.md",
+        "tags":["artificial_intelligence","machine_learning","deep_learning","conference","digits","caffe"]
+    },
+    {
         "key":2,
         "datetime":"2017-10-01T16:23:00.000Z",
         "title":"dplogs_:_behind_the_scenes",
