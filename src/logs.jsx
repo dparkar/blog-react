@@ -70,7 +70,7 @@ export default class Logs extends TrackedComponent {
           );
         } else {
           Alert.error(
-            'is that url correct ? log not found : "' + logtitle + '"',
+            'invalid log title in url. log not found : "' + logtitle + '"',
             {
               position: 'bottom-right',
               effect: 'bouncyflip',
@@ -135,7 +135,7 @@ export default class Logs extends TrackedComponent {
     } else {
       logs = this.state.logs.map(log => {
         let logMetadata = (
-          <div className="logmetadata">
+          <div className="log">
             <div className="logdatetime">
               {log.datetime}
             </div>
@@ -159,7 +159,9 @@ export default class Logs extends TrackedComponent {
                 springConfig={presets.wobbly}
               >
                 {logMetadata}
-                <ReactMarkdown source={log.content} />
+                <div className="log">
+                  <ReactMarkdown source={log.content} />
+                </div>
               </Collapse>
             </div>
           );
