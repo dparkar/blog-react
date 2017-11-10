@@ -12,7 +12,7 @@ import './logs.css';
 let repo;
 const user = 'dparkar';
 const repoName = 'blog-react';
-const repoBranch = 'master';
+const repoBranch = 'dev/dparkar/onclick/bu62';
 const repoContentPath = 'content';
 const repoLogsMetadataFile = 'logs.json';
 
