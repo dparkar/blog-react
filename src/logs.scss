@@ -21,10 +21,27 @@
     .logdatetime {
       float: right;
       cursor: pointer;
-      padding: 0.5%;
+      padding-right: 0.5%;
+      padding-bottom: 0.5%; 
   }
 .logtags {
     text-align:right;
+}
+.clearboth{
+    clear: both;
+}
+}
+@media (max-width: 767px) {
+    .logtitle {
+        text-align: center;
+    }
+    .logdatetime {
+      text-align: center;
+      cursor: pointer;
+      padding: 0.5%;
+  }
+.logtags {
+    text-align:center;
 }
 .clearboth{
     clear: both;
