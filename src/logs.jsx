@@ -161,7 +161,9 @@ export default class Logs extends TrackedComponent {
                 isOpened={true}
                 springConfig={presets.wobbly}
               >
-                {logMetadata}
+                <div className="logmetadatafade">
+                  {logMetadata}
+                </div>
                 <hr />
                 <div className="log">
                   <ReactMarkdown source={log.content} />
