@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import { Collapse } from 'react-collapse';
 import { presets } from 'react-motion';
 import Alert from 'react-s-alert';
+import { WithContext as ReactTags } from 'react-tag-input';
 
 import './logs.css';
 
@@ -135,17 +136,21 @@ export default class Logs extends TrackedComponent {
     } else {
       logs = this.state.logs.map(log => {
         let logMetadata = (
-          <div className="log">
-            <div className="logdatetime">
-              {log.datetime}
-            </div>
-            <div className="logtags">
-              {'[' + log.tags + ']'}
-            </div>
+          <div
+            className="logmetadata"
+            data-id={log.datetime}
+            onClick={this.handleClick}
+          >
             <div className="logtitle">
               {log.title}
             </div>
+            <div className="logdatetime">
+              {log.datetime}
+            </div>
             <div className="clearboth" />
+            <div className="logtags">
+              <ReactTags tags={log.tags} readOnly={true} />
+            </div>
           </div>
         );
         if (log.selected) {
@@ -154,11 +159,11 @@ export default class Logs extends TrackedComponent {
               <Collapse
                 key={log.datetime}
                 isOpened={true}
-                onClick={this.handleClick}
-                data-id={log.datetime}
                 springConfig={presets.wobbly}
               >
-                {logMetadata}
+                <div className="logmetadatafade">
+                  {logMetadata}
+                </div>
                 <div className="log">
                   <ReactMarkdown source={log.content} />
                 </div>
@@ -170,8 +175,6 @@ export default class Logs extends TrackedComponent {
             <Collapse
               key={log.datetime}
               isOpened={true}
-              onClick={this.handleClick}
-              data-id={log.datetime}
               springConfig={presets.wobbly}
             >
               {logMetadata}

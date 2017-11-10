@@ -2,22 +2,30 @@
     {
         "key":3,
         "datetime":"2017-11-02T21:02:00.000Z",
-        "title":"machinery.ai_developer_conference_(seattle,_wa)",
+        "title":"machinery_ai_developer_conference_seattle_wa",
         "filename":"2017_11_02_21_02_00.md",
-        "tags":["artificial_intelligence","machine_learning","deep_learning","conference","digits","caffe"]
+        "tags":[{ "id": 1, "text": "artificial-intelligence" },
+            { "id": 2, "text": "machine-learning" },
+            { "id": 3, "text": "deep-learning" },
+            { "id" : 4, "text": "conference"},
+            {"id" : 5, "text": "nvidia-digits"}]
     },
     {
         "key":2,
         "datetime":"2017-10-01T16:23:00.000Z",
-        "title":"dplogs_:_behind_the_scenes",
+        "title":"dplogs_behind_the_scenes",
         "filename":"2017_10_01_16_23_00.md",
-        "tags":["react","ui","javascript","blog"]
+        "tags":[{ "id": 1, "text": "react" },
+            { "id": 2, "text": "ui" },
+            { "id": 3, "text": "javascript" },
+            { "id" : 4, "text": "blog"}]
     },
     {
         "key":1,
         "datetime":"2017-08-20T19:27:00.000Z",
-        "title":"hello_world_!",
+        "title":"hello_world",
         "filename":"2017_08_20_19_27_00.md",
-        "tags":["react","miscellaneous"]
+        "tags":[{ "id": 1, "text": "react" },
+            { "id": 2, "text": "miscellaneous" }]
     }
 ]
