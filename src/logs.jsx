@@ -136,15 +136,15 @@ export default class Logs extends TrackedComponent {
     } else {
       logs = this.state.logs.map(log => {
         let logMetadata = (
-          <div className="log">
+          <div
+            className="logmetadata"
+            data-id={log.datetime}
+            onClick={this.handleClick}
+          >
             <div className="logtitle">
               {log.title}
             </div>
-            <div
-              className="logdatetime"
-              data-id={log.datetime}
-              onClick={this.handleClick}
-            >
+            <div className="logdatetime">
               {log.datetime}
             </div>
             <div className="clearboth" />
@@ -164,7 +164,6 @@ export default class Logs extends TrackedComponent {
                 <div className="logmetadatafade">
                   {logMetadata}
                 </div>
-                <hr />
                 <div className="log">
                   <ReactMarkdown source={log.content} />
                 </div>
