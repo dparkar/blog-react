@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import { Collapse } from 'react-collapse';
 import { presets } from 'react-motion';
 import Alert from 'react-s-alert';
+import { WithContext as ReactTags } from 'react-tag-input';
 
 import './logs.css';
 
@@ -135,21 +136,21 @@ export default class Logs extends TrackedComponent {
     } else {
       logs = this.state.logs.map(log => {
         let logMetadata = (
-          <div
-            className="log"
-            data-id={log.datetime}
-            onClick={this.handleClick}
-          >
-            <div className="logdatetime">
-              {log.datetime}
-            </div>
-            <div className="logtags">
-              {'[' + log.tags + ']'}
-            </div>
+          <div className="log">
             <div className="logtitle">
               {log.title}
             </div>
+            <div
+              className="logdatetime"
+              data-id={log.datetime}
+              onClick={this.handleClick}
+            >
+              {log.datetime}
+            </div>
             <div className="clearboth" />
+            <div className="logtags">
+              <ReactTags tags={log.tags} readOnly={true} />
+            </div>
           </div>
         );
         if (log.selected) {
@@ -161,6 +162,7 @@ export default class Logs extends TrackedComponent {
                 springConfig={presets.wobbly}
               >
                 {logMetadata}
+                <hr />
                 <div className="log">
                   <ReactMarkdown source={log.content} />
                 </div>

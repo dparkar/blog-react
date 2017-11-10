@@ -16,16 +16,11 @@
   }
   @media (min-width: 768px) {
   .logdatetime {
-      float: left;
+      float: right;
       cursor: pointer;
   }
   .logtitle {
-    cursor: pointer;
-    text-align: center;
-}
-.logtags {
-    float: right;
-    cursor: pointer;
+    float: left;
 }
 .clearboth{
     clear: both;
