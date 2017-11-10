@@ -135,7 +135,11 @@ export default class Logs extends TrackedComponent {
     } else {
       logs = this.state.logs.map(log => {
         let logMetadata = (
-          <div className="log">
+          <div
+            className="log"
+            data-id={log.datetime}
+            onClick={this.handleClick}
+          >
             <div className="logdatetime">
               {log.datetime}
             </div>
@@ -154,8 +158,6 @@ export default class Logs extends TrackedComponent {
               <Collapse
                 key={log.datetime}
                 isOpened={true}
-                onClick={this.handleClick}
-                data-id={log.datetime}
                 springConfig={presets.wobbly}
               >
                 {logMetadata}
@@ -170,8 +172,6 @@ export default class Logs extends TrackedComponent {
             <Collapse
               key={log.datetime}
               isOpened={true}
-              onClick={this.handleClick}
-              data-id={log.datetime}
               springConfig={presets.wobbly}
             >
               {logMetadata}
