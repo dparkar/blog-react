@@ -22,17 +22,31 @@
     font-size: 10px;
     background-color: lightgray
 }
+
+.logfacebook {
+    float: left;
+}
+.loglinkedin {
+    float: left;
+}
+.logtwitter {
+    float:right;
+}
   @media (min-width: 768px) {
     .logtitle {
         float: left;
+        padding-bottom: 0.5%;
     }
     .logdatetime {
       float: right;
       padding-right: 0.5%;
       padding-bottom: 0.5%; 
   }
+  .logsocial {
+      float:left;
+  }
 .logtags {
-    text-align:right;
+    float:right;
 }
 .clearboth{
     clear: both;
@@ -41,13 +55,17 @@
 @media (max-width: 767px) {
     .logtitle {
         text-align: center;
+        padding-bottom: 0.5%;
     }
     .logdatetime {
       text-align: center;
       padding-right: 0.5%;
       padding-bottom: 0.5%;
   }
-.logtags {
+  .logsocial{
+      text-align: center;
+  }
+  .logtags {
     text-align:center;
 }
 .clearboth{
