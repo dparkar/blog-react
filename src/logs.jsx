@@ -155,12 +155,12 @@ export default class Logs extends TrackedComponent {
     } else {
       logs = this.state.logs.map(log => {
         let logMetadata = (
-          <div
-            className="logmetadata"
-            data-id={log.datetime}
-            onClick={this.handleClick}
-          >
-            <div className="logmetadatarow1">
+          <div className="logmetadata">
+            <div
+              className="logmetadatarow1"
+              data-id={log.datetime}
+              onClick={this.handleClick}
+            >
               <div className="logtitle">
                 {log.title}
               </div>
@@ -170,6 +170,9 @@ export default class Logs extends TrackedComponent {
               <div className="clearboth" />
             </div>
             <div className="logmetadatarow2">
+              <div className="logtags">
+                <ReactTags tags={log.tags} readOnly={true} />
+              </div>
               <div className="logsocial">
                 <table>
                   <tbody>
@@ -226,9 +229,6 @@ export default class Logs extends TrackedComponent {
                     </tr>
                   </tbody>
                 </table>
-              </div>
-              <div className="logtags">
-                <ReactTags tags={log.tags} readOnly={true} />
               </div>
               <div className="clearboth" />
             </div>

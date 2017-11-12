@@ -13,29 +13,23 @@
   }
   .logmetadata {
     padding:1%;
-    cursor: pointer;
 }
 .logmetadata:hover{
     background-color: lightgray
+}
+.logmetadatarow1:hover {
+    cursor: pointer;
 }
   .logmetadatafade {
     font-size: 10px;
     background-color: lightgray
 }
 
-.logfacebook {
-    float: left;
-}
-.loglinkedin {
-    float: left;
-}
-.logtwitter {
-    float:right;
-}
   @media (min-width: 768px) {
     .logtitle {
         float: left;
         padding-bottom: 0.5%;
+        padding-left: 0.5%;
     }
     .logdatetime {
       float: right;
@@ -43,10 +37,13 @@
       padding-bottom: 0.5%; 
   }
   .logsocial {
-      float:left;
+      float:right;
   }
+  .logsocial:hover {
+    cursor: pointer;
+}
 .logtags {
-    float:right;
+    float:left;
 }
 .clearboth{
     clear: both;
@@ -56,6 +53,7 @@
     .logtitle {
         text-align: center;
         padding-bottom: 0.5%;
+        padding-left: 0.5%;
     }
     .logdatetime {
       text-align: center;
@@ -65,6 +63,9 @@
   .logsocial{
       text-align: center;
   }
+  .logsocial:hover {
+    cursor: pointer;
+}
   .logtags {
     text-align:center;
 }
