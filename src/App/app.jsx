@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { TrackedComponent } from 'react-appinsights';
-import Page from './page.jsx';
+import Page from '../Page/page.jsx';
 
 const Logs = props =>
   <Page logtitle={props.match.params.logtitle} title="Logs" />;

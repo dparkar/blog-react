@@ -6,8 +6,11 @@ import { Collapse } from 'react-collapse';
 import { presets } from 'react-motion';
 import Alert from 'react-s-alert';
 import { WithContext as ReactTags } from 'react-tag-input';
+import ReactDisqusThread from 'react-disqus-thread';
+import Share from '../Share/share.jsx';
 
 import './logs.css';
+import './s-alert-flip.css';
 
 let repo;
 const user = 'dparkar';
@@ -70,14 +73,11 @@ export default class Logs extends TrackedComponent {
             }
           );
         } else {
-          Alert.error(
-            'invalid log title in url. log not found : "' + logtitle + '"',
-            {
-              position: 'bottom-right',
-              effect: 'bouncyflip',
-              timeout: 5000
-            }
-          );
+          Alert.error('invalid log title in url : "' + logtitle + '"', {
+            position: 'bottom-right',
+            effect: 'bouncyflip',
+            timeout: 5000
+          });
         }
 
         this.setState({ logs: logs, directtolog: directtolog });
@@ -135,6 +135,7 @@ export default class Logs extends TrackedComponent {
       logs = <p>retrieving logs ...</p>;
     } else {
       logs = this.state.logs.map(log => {
+        //let shareURL = 'http://dplogs.com/log/' + log.title;
         let logMetadata = (
           <div
             className="logmetadata"
@@ -148,9 +149,17 @@ export default class Logs extends TrackedComponent {
               {log.datetime}
             </div>
             <div className="clearboth" />
+          </div>
+        );
+        let logtagsandshare = (
+          <div className="logtagsandsocial">
             <div className="logtags">
               <ReactTags tags={log.tags} readOnly={true} />
             </div>
+            <div className="logsocial">
+              <Share shareURL={'http://dplogs.com/log/' + log.title} />
+            </div>
+            <div className="clearboth" />
           </div>
         );
         if (log.selected) {
@@ -161,11 +170,18 @@ export default class Logs extends TrackedComponent {
                 isOpened={true}
                 springConfig={presets.wobbly}
               >
-                <div className="logmetadatafade">
-                  {logMetadata}
-                </div>
-                <div className="log">
+                {logMetadata}
+                <div className="logorsocial">
                   <ReactMarkdown source={log.content} />
+                </div>
+                {logtagsandshare}
+                <div className="logorsocial">
+                  <ReactDisqusThread
+                    shortame={log.title}
+                    identifier={log.datetime}
+                    title={log.title}
+                    url={'http://dplogs.com/log/' + log.title}
+                  />
                 </div>
               </Collapse>
             </div>
