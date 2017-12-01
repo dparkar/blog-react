@@ -1,19 +1,16 @@
 import React from 'react';
 import { pushRotate as Menu } from 'react-burger-menu';
 import { TrackedComponent } from 'react-appinsights';
-import logo from './logo.svg';
-import Logs from './logs.jsx';
-import Stats from './stats.jsx';
-import About from './about.jsx';
-import Err from './err.jsx';
-import './page.css';
 import { Link } from 'react-router-dom';
 import Alert from 'react-s-alert';
-
+import Logs from '../Logs/logs.jsx';
+import Stats from '../Stats/stats.jsx';
+import About from '../About/about.jsx';
+import Err from '../Err/err.jsx';
+import logo from '../logo.svg';
+import './page.css';
 import './s-alert-default.css';
 import './s-alert-bouncyflip.css';
-
-//const Sections = { Logs, Stats, About, Err };
 
 export default class Page extends TrackedComponent {
   render() {
@@ -32,11 +29,6 @@ export default class Page extends TrackedComponent {
       default:
         sec = <Err />;
     }
-
-    // var sec = Sections[title];
-    // if (sec === '') {
-    //   sec = Sections[Sections.length - 1];
-    // }
 
     return (
       <div className="Page">

@@ -16,6 +16,7 @@
     "react-burger-menu": "^2.1.5",
     "react-chronos": "^1.0.4",
     "react-collapse": "^4.0.3",
+    "react-disqus-thread": "^0.4.0",
     "react-dom": "^15.6.1",
     "react-markdown": "^2.5.0",
     "react-motion": "^0.5.2",
