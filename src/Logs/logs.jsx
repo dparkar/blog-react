@@ -45,9 +45,6 @@ export default class Logs extends TrackedComponent {
             log['selected'] = true;
             selectedlogindex = logindex;
             directtolog = true;
-          } else if (logtitle === undefined && logindex === 0) {
-            log['selected'] = true;
-            selectedlogindex = logindex;
           } else {
             log['selected'] = false;
           }
@@ -73,11 +70,13 @@ export default class Logs extends TrackedComponent {
             }
           );
         } else {
-          Alert.error('invalid log title in url : "' + logtitle + '"', {
-            position: 'bottom-right',
-            effect: 'bouncyflip',
-            timeout: 5000
-          });
+          if (logtitle !== undefined) {
+            Alert.error('invalid log title in url : "' + logtitle + '"', {
+              position: 'bottom-right',
+              effect: 'bouncyflip',
+              timeout: 5000
+            });
+          }
         }
 
         this.setState({ logs: logs, directtolog: directtolog });
@@ -177,7 +176,7 @@ export default class Logs extends TrackedComponent {
                 {logtagsandshare}
                 <div className="logorsocial">
                   <ReactDisqusThread
-                    shortame={log.title}
+                    shortname={log.title}
                     identifier={log.datetime}
                     title={log.title}
                     url={'http://dplogs.com/log/' + log.title}
