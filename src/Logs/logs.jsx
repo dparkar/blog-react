@@ -40,6 +40,7 @@ export default class Logs extends TrackedComponent {
         var logindex = 0;
         var selectedlogindex = null;
         var directtolog = false;
+
         logs.forEach(function(log) {
           if (log['title'] === logtitle) {
             log['selected'] = true;
