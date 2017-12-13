@@ -8,7 +8,6 @@ import { presets } from 'react-motion';
 import Share from '../Share/share.jsx';
 
 import './logdetails.css';
-import './s-alert-flip.css';
 
 let repo;
 const user = 'dparkar';

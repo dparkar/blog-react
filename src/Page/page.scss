@@ -32,79 +32,52 @@
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
   }
-  
-/* Position and sizing of burger button */
-@media (min-width: 768px) {
-.bm-burger-button {
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    left: 20px;
-    top: 20px;
+
+  .mfb-component--tl{
+    animation: fromTop 1s 1;
+    -webkit-animation: fromTop 1s 1;
   }
-}
-@media (max-width: 767px) {
-  .bm-burger-button {
-      position: fixed;
-      width: 10px;
-      height: 10px;
-      left: 10px;
-      top: 10px;
+  .mfb-component--tr{
+    animation: fromTop 1.3s 1;
+    -webkit-animation: fromTop 1.3s 1;
+  }
+  .mfb-component--br{
+    animation: fromBottom 1.6s 1;
+    -webkit-animation: fromBottom 1.6s 1;
+  }
+  .mfb-component--bl{
+    animation: fromBottom 1.9s 1;
+    -webkit-animation: fromBottom 1.9s 1;
+  }
+  @keyframes fromBottom {
+    0% {
+      transform: translateY(250px);
+    }
+    100% {
+      transform: translateY(0);
     }
   }
-  /* Color/shape of burger icon bars */
-  .bm-burger-bars {
-    background: white;
+  @keyframes fromTop {
+    0% {
+      transform: translateY(-250px);
+    }
+    100% {
+      transform: translateY(0);
+    }
   }
-  
-  /* Position and sizing of clickable cross button */
-  .bm-cross-button {
-    height: 24px;
-    width: 24px;
+  @-webkit-keyframes fromBottom {
+    0% {
+      transform: translateY(250px);
+    }
+    100% {
+      transform: translateY(0);
+    }
   }
-  
-  /* Color/shape of close button cross */
-  .bm-cross {
-    background: white;
-  }
-  
-  /* General sidebar styles */
-  .bm-menu {
-    background: #222;
-    padding: 2.5em 1.5em 0;
-    font-size: 1.15em;
-    text-align: center;
-  }
-
-  .bm-menu-wrap {
-    background: #222;
-  }
-  
-  /* Morph shape necessary with bubble or elastic */
-  .bm-morph-shape {
-    fill: #222;
-  }
-  
-  /* Wrapper for item list */
-  .bm-item-list {
-    color: #b8b7ad;
-  }
-  
-  /* Styling of overlay */
-  .bm-overlay {
-    background: rgba(0, 0, 0, 0.3);
-  }
-
-  .menu-item{
-    color:white;
-    text-decoration: none;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    border-radius: 10px;
-  }
-  
-  .menu-item:hover{
-    background-color: grey;
-    border-radius: 10px;
-  }
-    
+  @-webkit-keyframes fromTop {
+    0% {
+      transform: translateY(-250px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }   
