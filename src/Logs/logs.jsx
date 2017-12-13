@@ -8,7 +8,7 @@ import './logs.css';
 let repo;
 const user = 'dparkar';
 const repoName = 'blog-react';
-const repoBranch = 'master';
+const repoBranch = 'dev/dparkar/social/bu65';
 const repoContentPath = 'content';
 const repoLogsMetadataFile = 'logs.json';
 
@@ -46,7 +46,7 @@ export default class Logs extends TrackedComponent {
         return (
           <div className="logmetadata">
             <div className="logtitle">
-              <Link id={log.title} to={'/log/' + log.filename}>
+              <Link id={log.title} to={'/log/' + log.title}>
                 {log.title}
               </Link>
             </div>
@@ -60,6 +60,7 @@ export default class Logs extends TrackedComponent {
     }
     return (
       <div className="Logs">
+        <title>logs | dhawal parkar</title>
         {logs}
       </div>
     );

@@ -21,7 +21,7 @@ export default class Page extends TrackedComponent {
         sec = <Logs />;
         break;
       case 'LogDetails':
-        sec = <LogDetails logfilename={this.props.logfilename} />;
+        sec = <LogDetails logtitle={this.props.logtitle} />;
         break;
       case 'Stats':
         sec = <Stats />;
@@ -35,9 +35,6 @@ export default class Page extends TrackedComponent {
 
     return (
       <div className="Page">
-        <title>
-          {title.toLowerCase()} | dhawal parkar
-        </title>
         <Link id="logs" className="menu-item" to="/">
           logs
         </Link>

@@ -13,21 +13,21 @@ import './s-alert-flip.css';
 let repo;
 const user = 'dparkar';
 const repoName = 'blog-react';
-const repoBranch = 'master';
+const repoBranch = 'dev/dparkar/social/bu65';
 const repoContentPath = 'content';
 
 export default class LogDetails extends TrackedComponent {
   constructor(props) {
     super(props);
-    var logfilename = this.props.logfilename;
-    console.log('logfilename:' + logfilename);
+    var logtitle = this.props.logtitle;
+    console.log('logtitle:' + logtitle);
     var gh = new GitHub();
     // get the repo
     repo = gh.getRepo(user, repoName);
     // get the logs metadata
     repo.getContents(
       repoBranch,
-      repoContentPath + '/' + logfilename,
+      repoContentPath + '/' + logtitle + '.md',
       true,
       (err, logdetails) => {
         if (err) {
@@ -35,12 +35,12 @@ export default class LogDetails extends TrackedComponent {
           return;
         }
 
-        this.setState({ logfilename: logfilename, logdetails: logdetails });
+        this.setState({ logtitle: logtitle, logdetails: logdetails });
       },
       this
     );
     // Intialize state
-    this.state = { logfilename: logfilename };
+    this.state = { logtitle: logtitle };
   }
 
   render() {
@@ -48,7 +48,7 @@ export default class LogDetails extends TrackedComponent {
     if (this.state.logdetails === undefined) {
       fullcontent = (
         <p>
-          retrieving log details for {this.state.logfilename}
+          retrieving log details for {this.state.logtitle}
         </p>
       );
     } else {
@@ -63,21 +63,22 @@ export default class LogDetails extends TrackedComponent {
 
     return (
       <div className="Logs">
+        <title>
+          {this.state.logtitle} | dhawal parkar
+        </title>
         {fullcontent}
         <div className="tagsandsocial">
           <div className="logsocial">
-            <Share
-              shareURL={'http://dplogs.com/log/' + this.state.logfilename}
-            />
+            <Share shareURL={'http://dplogs.com/log/' + this.state.logtitle} />
           </div>
           <div className="clearboth" />
         </div>
         <div className="detailsordiscuss">
           <ReactDisqusThread
-            shortname={this.state.logfilename}
-            identifier={this.state.logfilename}
-            title={this.state.logfilename}
-            url={'http://dplogs.com/log/' + this.state.logfilename}
+            shortname={this.state.logtitle}
+            identifier={this.state.logtitle}
+            title={this.state.logtitle}
+            url={'http://dplogs.com/log/' + this.state.logtitle}
           />
         </div>
       </div>
