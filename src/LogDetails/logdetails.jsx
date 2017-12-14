@@ -3,8 +3,6 @@ import { TrackedComponent } from 'react-appinsights';
 import GitHub from 'github-api';
 import ReactMarkdown from 'react-markdown';
 import ReactDisqusThread from 'react-disqus-thread';
-import { Collapse } from 'react-collapse';
-import { presets } from 'react-motion';
 import Share from '../Share/share.jsx';
 
 import './logdetails.css';
@@ -52,11 +50,9 @@ export default class LogDetails extends TrackedComponent {
       );
     } else {
       fullcontent = (
-        <Collapse isOpened={true} springConfig={presets.wobbly}>
-          <div className="detailsordiscuss">
-            <ReactMarkdown source={this.state.logdetails} />
-          </div>
-        </Collapse>
+        <div className="detailsordiscuss">
+          <ReactMarkdown source={this.state.logdetails} />
+        </div>
       );
     }
 

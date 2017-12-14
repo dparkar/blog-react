@@ -9,7 +9,6 @@ import About from '../About/about.jsx';
 import Err from '../Err/err.jsx';
 import logo from '../logo.svg';
 import './page.css';
-import { Menu, MainButton, ChildButton } from 'react-mfb';
 
 export default class Page extends TrackedComponent {
   render() {
@@ -34,25 +33,6 @@ export default class Page extends TrackedComponent {
 
     return (
       <div className="Page">
-        <Menu>
-          <MainButton />
-          <ChildButton
-            //onClick={function(e){ console.log(e); e.preventDefault(); }}
-            icon="ion-social-github"
-            label="View on Github"
-            href="https://github.com/nobitagit/react-material-floating-button/"
-          />
-          <ChildButton
-            icon="ion-social-octocat"
-            label="Follow me on Github"
-            href="https://github.com/nobitagit"
-          />
-          <ChildButton
-            icon="ion-social-twitter"
-            label="Share on Twitter"
-            href="http://twitter.com/share?text=Amazing Google Inbox style material floating menu as a React component!&url=http://nobitagit.github.io/react-material-floating-button/&hashtags=material,menu,reactjs,react,component"
-          />
-        </Menu>
         <Link id="logs" className="menu-item" to="/">
           logs
         </Link>
