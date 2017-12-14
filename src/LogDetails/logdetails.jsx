@@ -49,19 +49,17 @@ export default class LogDetails extends TrackedComponent {
         </p>
       );
     } else {
-      fullcontent = (
-        <div className="detailsordiscuss">
-          <ReactMarkdown source={this.state.logdetails} />
-        </div>
-      );
+      fullcontent = <ReactMarkdown source={this.state.logdetails} />;
     }
 
     return (
-      <div className="Logs">
+      <div>
         <title>
           {this.state.logtitle} | dhawal parkar
         </title>
-        {fullcontent}
+        <div className="detailsordiscuss">
+          {fullcontent}
+        </div>
         <div className="tagsandsocial">
           <div className="logsocial">
             <Share shareURL={'http://dplogs.com/log/' + this.state.logtitle} />

@@ -1,17 +1,12 @@
-.logorsocial {
-    padding:1%;
-  }
-.logmetadata {
+.detailsordiscuss {
     padding:1%;
     border-radius: 20px;
+    background-color: white;
+    margin: 2%;
   }
-.logmetadata:hover{
-    background-color: lightgray;
-    cursor: pointer;
-}
-.logtagsandsocial {
+
+.tagsandsocial {
     padding:1%;
-    border-radius: 20px;
 }
 
 table {
@@ -20,14 +15,6 @@ table {
 }
 
 @media (min-width: 768px) {
-    .logtitle {
-        float: left;
-        padding-left: 0.5%;
-    }
-    .logdatetime {
-        float: right;
-        padding-right: 0.5%;
-    }
     .logtags {
         float: left;
         padding-left: 0.5%;
@@ -41,14 +28,6 @@ table {
     }
 }
 @media (max-width: 767px) {
-    .logtitle {
-        text-align: center;
-        padding-left: 0.5%;
-    }
-    .logdatetime {
-        text-align: center;
-        padding-right: 0.5%;
-    }
     .logtags {
         text-align: center;
         padding-left: 0.5%;

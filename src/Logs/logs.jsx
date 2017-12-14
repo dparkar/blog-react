@@ -44,17 +44,17 @@ export default class Logs extends TrackedComponent {
     } else {
       logs = this.state.logs.map(log => {
         return (
-          <div className="logmetadata">
-            <div className="logtitle">
-              <Link id={log.title} to={'/log/' + log.title}>
+          <Link id={log.title} to={'/log/' + log.title}>
+            <div className="logmetadata">
+              <div className="logtitle">
                 {log.title}
-              </Link>
+              </div>
+              <div className="logdatetime">
+                {log.datetime}
+              </div>
+              <div className="clearboth" />
             </div>
-            <div className="logdatetime">
-              {log.datetime}
-            </div>
-            <div className="clearboth" />
-          </div>
+          </Link>
         );
       });
     }
