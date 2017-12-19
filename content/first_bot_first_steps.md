@@ -9,4 +9,4 @@ Meet Pi-1-er ! :)
     - [L-298 Dual H-Bridge DC Motor Controller](https://www.amazon.com/Qunqi-Controller-Module-Stepper-Arduino/dp/B014KMHSW6/ref=sr_1_3?ie=UTF8&qid=1513140579&sr=8-3&keywords=l298n+h-bridge+motor+controller)
     - Hacked USB Anker battery
 
-<center>[![First Bot's First Steps](https://img.youtube.com/vi/G8LfERTUzLQ/0.jpg)](https://www.youtube.com/watch?v=G8LfERTUzLQ)</center>
+[![First Bot's First Steps](https://img.youtube.com/vi/G8LfERTUzLQ/0.jpg)](https://www.youtube.com/watch?v=G8LfERTUzLQ)
