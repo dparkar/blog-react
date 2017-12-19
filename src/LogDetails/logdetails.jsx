@@ -2,7 +2,6 @@ import React from 'react';
 import { TrackedComponent } from 'react-appinsights';
 import GitHub from 'github-api';
 import ReactMarkdown from 'react-markdown';
-import ReactDisqusThread from 'react-disqus-thread';
 import Share from '../Share/share.jsx';
 
 import './logdetails.css';
@@ -65,14 +64,6 @@ export default class LogDetails extends TrackedComponent {
             <Share shareURL={'http://dplogs.com/log/' + this.state.logtitle} />
           </div>
           <div className="clearboth" />
-        </div>
-        <div className="detailsordiscuss">
-          <ReactDisqusThread
-            shortname={this.state.logtitle}
-            identifier={this.state.logtitle}
-            title={this.state.logtitle}
-            url={'http://dplogs.com/log/' + this.state.logtitle}
-          />
         </div>
       </div>
     );
