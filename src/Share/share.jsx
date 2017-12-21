@@ -1,9 +1,8 @@
 import React from 'react';
 import { TrackedComponent } from 'react-appinsights';
-import { ShareButtons, ShareCounts, generateShareIcon } from 'react-share';
+import { ShareButtons, ShareCounts } from 'react-share';
+import FontAwesome from 'react-fontawesome';
 import './share.css';
-
-let shareIconSize = 30;
 
 const {
   FacebookShareButton,
@@ -26,16 +25,6 @@ const {
   TumblrShareCount
 } = ShareCounts;
 
-const LinkedinIcon = generateShareIcon('linkedin');
-const FacebookIcon = generateShareIcon('facebook');
-const TwitterIcon = generateShareIcon('twitter');
-const GooglePlusIcon = generateShareIcon('google');
-const WhatsappIcon = generateShareIcon('whatsapp');
-const PinterestIcon = generateShareIcon('pinterest');
-const RedditIcon = generateShareIcon('reddit');
-const TumblrIcon = generateShareIcon('tumblr');
-const EmailIcon = generateShareIcon('email');
-
 export default class Share extends TrackedComponent {
   render() {
     return (
@@ -49,7 +38,7 @@ export default class Share extends TrackedComponent {
                     url={this.props.shareURL}
                     className="network__share-button"
                   >
-                    <FacebookIcon size={shareIconSize} round />
+                    <FontAwesome name="facebook" className="navlinkfont" />
                   </FacebookShareButton>
                   <FacebookShareCount
                     url={this.props.shareURL}
@@ -63,7 +52,7 @@ export default class Share extends TrackedComponent {
                     url={this.props.shareURL}
                     className="network__share-button"
                   >
-                    <LinkedinIcon size={shareIconSize} round />
+                    <FontAwesome name="linkedin" className="navlinkfont" />
                   </LinkedinShareButton>
                   <LinkedinShareCount
                     url={this.props.shareURL}
@@ -77,7 +66,7 @@ export default class Share extends TrackedComponent {
                     url={this.props.shareURL}
                     className="network__share-button"
                   >
-                    <TwitterIcon size={shareIconSize} round />
+                    <FontAwesome name="twitter" className="navlinkfont" />
                   </TwitterShareButton>
                   <div className="network__share-count">&nbsp;</div>
                 </div>
@@ -88,7 +77,7 @@ export default class Share extends TrackedComponent {
                     url={this.props.shareURL}
                     className="network__share-button"
                   >
-                    <GooglePlusIcon size={shareIconSize} round />
+                    <FontAwesome name="google-plus" className="navlinkfont" />
                   </GooglePlusShareButton>
                   <GooglePlusShareCount
                     url={this.props.shareURL}
@@ -102,7 +91,7 @@ export default class Share extends TrackedComponent {
                     url={this.props.shareURL}
                     className="network__share-button"
                   >
-                    <WhatsappIcon size={shareIconSize} round />
+                    <FontAwesome name="whatsapp" className="navlinkfont" />
                   </WhatsappShareButton>
                   <div className="network__share-count">&nbsp;</div>
                 </div>
@@ -113,7 +102,7 @@ export default class Share extends TrackedComponent {
                     url={this.props.shareURL}
                     className="network__share-button"
                   >
-                    <PinterestIcon size={shareIconSize} round />
+                    <FontAwesome name="pinterest-p" className="navlinkfont" />
                   </PinterestShareButton>
                   <PinterestShareCount
                     url={this.props.shareURL}
@@ -127,7 +116,7 @@ export default class Share extends TrackedComponent {
                     url={this.props.shareURL}
                     className="network__share-button"
                   >
-                    <RedditIcon size={shareIconSize} round />
+                    <FontAwesome name="reddit-alien" className="navlinkfont" />
                   </RedditShareButton>
                   <RedditShareCount
                     url={this.props.shareURL}
@@ -141,7 +130,7 @@ export default class Share extends TrackedComponent {
                     url={this.props.shareURL}
                     className="network__share-button"
                   >
-                    <TumblrIcon size={shareIconSize} round />
+                    <FontAwesome name="tumblr" className="navlinkfont" />
                   </TumblrShareButton>
                   <TumblrShareCount
                     url={this.props.shareURL}
@@ -155,7 +144,7 @@ export default class Share extends TrackedComponent {
                     url={this.props.shareURL}
                     className="network__share-button"
                   >
-                    <EmailIcon size={shareIconSize} round />
+                    <FontAwesome name="email" className="navlinkfont" />
                   </EmailShareButton>
                   <div className="network__share-count">&nbsp;</div>
                 </div>

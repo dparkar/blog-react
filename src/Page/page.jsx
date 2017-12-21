@@ -2,6 +2,7 @@ import React from 'react';
 import { TrackedComponent } from 'react-appinsights';
 import { Link } from 'react-router-dom';
 import Alert from 'react-s-alert';
+import FontAwesome from 'react-fontawesome';
 import Logs from '../Logs/logs.jsx';
 import LogDetails from '../LogDetails/logdetails.jsx';
 import Stats from '../Stats/stats.jsx';
@@ -9,8 +10,6 @@ import About from '../About/about.jsx';
 import Err from '../Err/err.jsx';
 import logo from '../logo.svg';
 import './page.css';
-
-var FontAwesome = require('react-fontawesome');
 
 export default class Page extends TrackedComponent {
   render() {
