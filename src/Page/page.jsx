@@ -10,6 +10,8 @@ import Err from '../Err/err.jsx';
 import logo from '../logo.svg';
 import './page.css';
 
+var FontAwesome = require('react-fontawesome');
+
 export default class Page extends TrackedComponent {
   render() {
     var title = this.props.title;
@@ -33,17 +35,21 @@ export default class Page extends TrackedComponent {
 
     return (
       <div className="Page">
-        <Link id="logs" className="menu-item" to="/">
-          logs
-        </Link>
-        <Link id="stats" className="menu-item" to="/stats">
-          stats
-        </Link>
-        <Link id="about" className="menu-item" to="/about">
-          about
-        </Link>
         <div className="Page-header">
-          <b>d</b>hawal <b>p</b>arkar <b>logs</b> ...
+          <div className="nav">
+            <Link id="logs" className="navlink" to="/">
+              <FontAwesome name="file-text-o" className="navlinkfont" />
+            </Link>
+            <Link id="stats" className="navlink" to="/stats">
+              <FontAwesome name="bar-chart-o" className="navlinkfont" />
+            </Link>
+            <Link id="about" className="navlink" to="/about">
+              <FontAwesome name="info" className="navlinkfont" />
+            </Link>
+          </div>
+          <div className="header">
+            <b>d</b>hawal <b>p</b>arkar <b>logs</b> ...
+          </div>
         </div>
         <div className="Page-content">
           {sec}

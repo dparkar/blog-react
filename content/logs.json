@@ -20,7 +20,7 @@
     {
         "key":-1,
         "datetime":"2017-07-24T21:40:00.000Z",
-        "title":"arduino_capturing_motor_rpm_using_photoelectric_encoders",
+        "title":"arduino_rpm_photoelectric_encoders",
         "tags":["arduino","encoders"]
     },
     {
