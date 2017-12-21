@@ -7,7 +7,9 @@ export default class Stats extends TrackedComponent {
     return (
       <div className="Logs">
         <title>stats | dhawal parkar</title>
-        <h1>Statistics</h1>
+        <div className="stats">
+          <h1>show me the data</h1>
+        </div>
       </div>
     );
   }

@@ -1,11 +1,12 @@
 import React from 'react';
 import { TrackedComponent } from 'react-appinsights';
+import FontAwesome from 'react-fontawesome';
 import './about.css';
 
 export default class About extends TrackedComponent {
   render() {
     return (
-      <div className="About">
+      <div className="about">
         <title> about | dhawal parkar </title>
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="dplogs" />
@@ -25,11 +26,36 @@ export default class About extends TrackedComponent {
         <meta property="fb:app_id" content="367989410291145" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:creator" content="@dparkar" />
-        <p>Visual Studio Team Services</p>
-        <p>Github</p>
-        <p>Stackoverflow</p>
-        <p>LinkedIn</p>
-        <p>Twitter</p>
+        <div className="aboutcontent">
+          <a
+            href="https://www.linkedin.com/in/dparkar"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FontAwesome name="linkedin" size="2x" />
+          </a>
+          <a
+            href="https://twitter.com/dparkar"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FontAwesome name="twitter" size="2x" />
+          </a>
+          <a
+            href="https://github.com/dparkar"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FontAwesome name="github" size="2x" />
+          </a>
+          <a
+            href="https://stackoverflow.com/users/805588/dparkar"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FontAwesome name="stack-overflow" size="2x" />
+          </a>
+        </div>
       </div>
     );
   }
