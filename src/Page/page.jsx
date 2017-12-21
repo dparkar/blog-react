@@ -20,21 +20,26 @@ export default class Page extends TrackedComponent {
     var logsnavlinkfontclassname = 'navlinkfont';
     var statsnavlinkfontclassname = 'navlinkfont';
     var aboutnavlinkfontclassname = 'navlinkfont';
+    var disqusidtitle = 'dplogs';
     switch (title) {
       case 'Logs':
         sec = <Logs />;
         logsnavlinkfontclassname = 'navlinkfontselected';
+        disqusidtitle = disqusidtitle + '_home';
         break;
       case 'LogDetails':
         sec = <LogDetails logtitle={this.props.logtitle} />;
+        disqusidtitle = disqusidtitle + '_log_' + this.props.logtitle;
         break;
       case 'Stats':
         sec = <Stats />;
         statsnavlinkfontclassname = 'navlinkfontselected';
+        disqusidtitle = disqusidtitle + '_stats';
         break;
       case 'About':
         sec = <About />;
         aboutnavlinkfontclassname = 'navlinkfontselected';
+        disqusidtitle = disqusidtitle + '_about';
         break;
       default:
         sec = <Err />;
@@ -74,8 +79,8 @@ export default class Page extends TrackedComponent {
           </div>
           <ReactDisqusComments
             shortname="dplogs"
-            identifier="12345"
-            title="dhawal parkar logs"
+            identifier={disqusidtitle}
+            title={disqusidtitle}
             url={window.location.href}
           />
           <a
