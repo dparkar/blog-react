@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { TrackedComponent } from 'react-appinsights';
 import GitHub from 'github-api';
+import { Wave } from 'better-react-spinkit';
 
 import './logs.css';
 
@@ -40,7 +41,7 @@ export default class Logs extends TrackedComponent {
   render() {
     let logs;
     if (this.state.logs.length === 0) {
-      logs = <p>retrieving logs ...</p>;
+      logs = <Wave size={100} color="white" />;
     } else {
       logs = this.state.logs.map(log => {
         return (
@@ -59,7 +60,7 @@ export default class Logs extends TrackedComponent {
       });
     }
     return (
-      <div className="Logs">
+      <div className="logs">
         <title>logs | dhawal parkar</title>
         {logs}
       </div>

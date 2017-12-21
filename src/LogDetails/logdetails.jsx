@@ -2,6 +2,7 @@ import React from 'react';
 import { TrackedComponent } from 'react-appinsights';
 import GitHub from 'github-api';
 import ReactMarkdown from 'react-markdown';
+import { Wave } from 'better-react-spinkit';
 
 import './logdetails.css';
 
@@ -41,11 +42,7 @@ export default class LogDetails extends TrackedComponent {
   render() {
     let fullcontent;
     if (this.state.logdetails === undefined) {
-      fullcontent = (
-        <p>
-          retrieving log details for {this.state.logtitle}
-        </p>
-      );
+      fullcontent = <Wave size={100} />;
     } else {
       fullcontent = <ReactMarkdown source={this.state.logdetails} />;
     }
