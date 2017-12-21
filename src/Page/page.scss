@@ -8,34 +8,47 @@
   }
   
   .Page-header {
-    background-color: #222;
-    padding: 2%;
+    padding : 3%;
   }
 
   .header {
-    float:center;
-    text-align: center;
-    color: white;    
+    color: white;
+    float:left;
+    text-shadow: 5px 5px #000000;
+  }
+
+  .navlink {
+    margin-left: 2%;
+    float:right;
   }
 
   .navlinkfont {
-      float: left;
       color:white;
       font-size: 150%;
-      padding: 1%;
+      text-shadow: 5px 5px #000000;
   }
+  
+  .navlinkfontselected {
+    color:grey;
+    font-size: 150%;
+}
+
+  .navlinkfont:hover{
+    color:lightgray;
+}
+
+.clearboth{
+  clear: both;
+}
 
   .Page-content {
-    padding: 1px;
+    padding: 3%;
     min-height:100vh;
   }
 
   .Page-footer {
-    background-color: #222;
-    height: 20%;
-    padding: 1%;
-    color: white;
-    text-align: center; 
+    padding: 3%;
+    text-align: center;
   }
 
   @keyframes Page-logo-spin {
