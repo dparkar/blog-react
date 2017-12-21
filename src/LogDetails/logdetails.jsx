@@ -2,7 +2,6 @@ import React from 'react';
 import { TrackedComponent } from 'react-appinsights';
 import GitHub from 'github-api';
 import ReactMarkdown from 'react-markdown';
-import Share from '../Share/share.jsx';
 
 import './logdetails.css';
 
@@ -58,12 +57,6 @@ export default class LogDetails extends TrackedComponent {
         </title>
         <div className="detailsordiscuss">
           {fullcontent}
-        </div>
-        <div className="tagsandsocial">
-          <div className="logsocial">
-            <Share shareURL={'http://dplogs.com/log/' + this.state.logtitle} />
-          </div>
-          <div className="clearboth" />
         </div>
       </div>
     );

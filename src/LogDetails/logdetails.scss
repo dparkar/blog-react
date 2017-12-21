@@ -4,39 +4,3 @@
     background-color: white;
     box-shadow: 5px 5px;
   }
-
-.tagsandsocial {
-    margin-top:5%;
-}
-
-table {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-@media (min-width: 768px) {
-    .logtags {
-        float: left;
-        padding-left: 0.5%;
-    }
-    .logsocial {
-        float: right;
-        padding-right: 0.5%;
-    }
-    .clearboth{
-        clear: both;
-    }
-}
-@media (max-width: 767px) {
-    .logtags {
-        text-align: center;
-        padding-left: 0.5%;
-    }
-    .logsocial {
-        text-align: center;
-        padding-right: 0.5%;
-    }
-    .clearboth{
-        clear: both;
-    }
-}

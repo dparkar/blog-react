@@ -7,6 +7,7 @@ import Logs from '../Logs/logs.jsx';
 import LogDetails from '../LogDetails/logdetails.jsx';
 import Stats from '../Stats/stats.jsx';
 import About from '../About/about.jsx';
+import Share from '../Share/share.jsx';
 import Err from '../Err/err.jsx';
 import logo from '../logo.svg';
 import './page.css';
@@ -67,6 +68,9 @@ export default class Page extends TrackedComponent {
           {sec}
         </div>
         <div className="Page-footer">
+          <div className="logsocial">
+            <Share shareURL={window.location.href} />
+          </div>
           <a
             href="https://github.com/dparkar/blog-react"
             target="_blank"
