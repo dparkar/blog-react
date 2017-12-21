@@ -77,9 +77,6 @@ export default class Page extends TrackedComponent {
           <div className="logsocial">
             <Share shareURL={window.location.href} />
           </div>
-          {disqusidtitle}
-          <br />
-          {window.location.href}
           <ReactDisqusComments
             shortname="dplogs"
             identifier={disqusidtitle}
