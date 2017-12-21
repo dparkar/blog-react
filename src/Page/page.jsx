@@ -3,6 +3,7 @@ import { TrackedComponent } from 'react-appinsights';
 import { Link } from 'react-router-dom';
 import Alert from 'react-s-alert';
 import FontAwesome from 'react-fontawesome';
+import ReactDisqusComments from 'react-disqus-comments';
 import Logs from '../Logs/logs.jsx';
 import LogDetails from '../LogDetails/logdetails.jsx';
 import Stats from '../Stats/stats.jsx';
@@ -71,6 +72,12 @@ export default class Page extends TrackedComponent {
           <div className="logsocial">
             <Share shareURL={window.location.href} />
           </div>
+          <ReactDisqusComments
+            shortname="dplogs"
+            identifier="12345"
+            title="dhawal parkar logs"
+            url={window.location.href}
+          />
           <a
             href="https://github.com/dparkar/blog-react"
             target="_blank"
