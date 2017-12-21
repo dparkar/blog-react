@@ -42,9 +42,13 @@ export default class LogDetails extends TrackedComponent {
   render() {
     let fullcontent;
     if (this.state.logdetails === undefined) {
-      fullcontent = <Wave size={100} />;
+      fullcontent = <Wave size={100} color="white" />;
     } else {
-      fullcontent = <ReactMarkdown source={this.state.logdetails} />;
+      fullcontent = (
+        <div className="detailsordiscuss">
+          <ReactMarkdown source={this.state.logdetails} />
+        </div>
+      );
     }
 
     return (
@@ -52,9 +56,7 @@ export default class LogDetails extends TrackedComponent {
         <title>
           {this.state.logtitle} | dhawal parkar
         </title>
-        <div className="detailsordiscuss">
-          {fullcontent}
-        </div>
+        {fullcontent}
       </div>
     );
   }
