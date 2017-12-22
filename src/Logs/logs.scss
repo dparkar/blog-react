@@ -6,26 +6,25 @@
     box-shadow: 5px 5px;
   }
   
-.logmetadata:hover{
-    background-color: lightgray;
-    cursor: pointer;
-}
-
 /* unvisited link */
 a:link {
     color: black;
     text-decoration: none;
 }
 
-.waiter {
-    display: flex;
-    justify-content: center;
-}
-
 /* visited link */
 a:visited {
     color: black;
     text-decoration: none;
+}
+
+a:hover {
+    font-weight: bolder
+}
+
+.waiter {
+    display: flex;
+    justify-content: center;
 }
 
 @media (min-width: 768px) {
