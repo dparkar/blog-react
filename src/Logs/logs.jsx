@@ -46,6 +46,19 @@ export default class Logs extends TrackedComponent {
   }
 
   render() {
+    if (this.state.tagged === undefined) {
+      document.title = 'logs | dhawal parkar';
+      document.getElementsByTagName('META')[3].content = 'logs | dhawal parkar';
+      document.getElementsByTagName('META')[4].content =
+        'http://dplogs.com/logs';
+    } else {
+      document.title = 'tagged ' + this.state.tagged + ' | dhawal parkar';
+      document.getElementsByTagName('META')[3].content =
+        'tagged ' + this.state.tagged + ' | dhawal parkar';
+      document.getElementsByTagName('META')[4].content =
+        'http://dplogs.com/tagged/' + this.state.tagged;
+    }
+
     let filteredlogs = this.state.logs;
     let logs;
     if (this.state.logs.length === 0 && this.state.fetched === false) {

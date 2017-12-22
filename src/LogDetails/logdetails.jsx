@@ -46,6 +46,12 @@ export default class LogDetails extends TrackedComponent {
   }
 
   render() {
+    document.title = this.state.logtitle + ' | dhawal parkar';
+    document.getElementsByTagName('META')[3].content =
+      this.state.logtitle + ' | dhawal parkar';
+    document.getElementsByTagName('META')[4].content =
+      'http://dplogs.com/log/' + this.state.logtitle;
+
     let fullcontent;
     if (this.state.logdetails === undefined && this.state.fetched === false) {
       fullcontent = (
