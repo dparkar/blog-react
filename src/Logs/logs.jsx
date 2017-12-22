@@ -65,9 +65,9 @@ export default class Logs extends TrackedComponent {
       }
       logs = filteredlogs.map(log => {
         var tagbuttons = log.tags.map(tag => {
-          var l = '/tagged/' + encodeURIComponent(tag);
+          var taglink = '/tagged/' + encodeURIComponent(tag);
           return (
-            <Link id={tag} to={l}>
+            <Link className="tag" id={tag} to={taglink}>
               {tag}
             </Link>
           );
@@ -83,7 +83,9 @@ export default class Logs extends TrackedComponent {
               </div>
             </Link>
             <div className="clearboth" />
-            {tagbuttons}
+            <div className="tags">
+              {tagbuttons}
+            </div>
           </div>
         );
       });

@@ -32,6 +32,23 @@ a:hover {
     text-align: center;
 }
 
+.tag {
+    margin-left: 0.5%;
+    background-color: lightgray;
+    padding-top: 1px;
+    padding-bottom:1px;
+    padding-left:2px;
+    padding-right:2px;
+    border: 1px solid #CCCCCC;
+    border-radius: 2px;
+    font-size: 12px;
+}
+
+.tag:hover{
+    font-weight: normal;
+    background-color: gray;
+}
+
 @media (min-width: 768px) {
     .logtitle {
         float: left;
@@ -40,10 +57,6 @@ a:hover {
     .logdatetime {
         float: right;
         padding-right: 0.5%;
-    }
-    .tag {
-        padding-left: 0.5%;
-        margin-left: 0.5%;
     }
     .clearboth{
         clear: both;
@@ -57,6 +70,9 @@ a:hover {
     .logdatetime {
         text-align: center;
         padding-right: 0.5%;
+    }
+    .tags {
+        text-align: center;
     }
     .clearboth{
         clear: both;
