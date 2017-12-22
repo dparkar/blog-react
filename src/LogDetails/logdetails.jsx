@@ -8,7 +8,7 @@ import './logdetails.css';
 let repo;
 const user = 'dparkar';
 const repoName = 'blog-react';
-const repoBranch = 'dev/dparkar/social/bu65';
+const repoBranch = 'master';
 const repoContentPath = 'content';
 
 export default class LogDetails extends TrackedComponent {
