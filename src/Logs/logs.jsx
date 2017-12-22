@@ -31,27 +31,32 @@ export default class Logs extends TrackedComponent {
           return;
         }
 
+        // filtering tags
         if (tag !== undefined) {
-          console.log('filtering');
-          logs = logs.filter(log => log.tags.include(tag));
+          tag = decodeURIComponent(tag);
+          logs = logs.filter(log => log.tags.indexOf(tag) !== -1);
         }
-        this.setState({ logs: logs });
+
+        this.setState({ logs: logs, fetched: true });
       }
     );
     // Intialize state
     this.state = {
-      logs: []
+      logs: [],
+      fetched: false
     };
   }
 
   render() {
     let logs;
-    if (this.state.logs.length === 0) {
+    if (this.state.logs.length === 0 && this.state.fetched === false) {
       logs = (
         <div className="waiter">
           <Wave size={100} color="white" />
         </div>
       );
+    } else if (this.state.logs.length === 0 && this.state.fetched === true) {
+      logs = <div className="note">no logs found</div>;
     } else {
       logs = this.state.logs.map(log => {
         return (

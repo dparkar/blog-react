@@ -23,7 +23,7 @@ export default class Page extends TrackedComponent {
     var disqusidtitle = 'dplogs';
     switch (title) {
       case 'Logs':
-        sec = <Logs />;
+        sec = <Logs tag={this.props.tag} />;
         logsnavlinkfontclassname = 'navlinkfontselected';
         disqusidtitle = disqusidtitle + '_home';
         break;

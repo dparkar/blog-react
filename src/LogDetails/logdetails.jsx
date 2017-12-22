@@ -3,7 +3,6 @@ import { TrackedComponent } from 'react-appinsights';
 import GitHub from 'github-api';
 import ReactMarkdown from 'react-markdown';
 import { Wave } from 'better-react-spinkit';
-
 import './logdetails.css';
 
 let repo;
@@ -16,7 +15,6 @@ export default class LogDetails extends TrackedComponent {
   constructor(props) {
     super(props);
     var logtitle = this.props.logtitle;
-    console.log('logtitle:' + logtitle);
     var gh = new GitHub();
     // get the repo
     repo = gh.getRepo(user, repoName);
@@ -28,25 +26,37 @@ export default class LogDetails extends TrackedComponent {
       (err, logdetails) => {
         if (err) {
           console.log(err); // we can't get the data, for some reason
+          this.setState({
+            logtitle: logtitle,
+            logdetails: logdetails,
+            fetched: true
+          });
           return;
         }
-
-        this.setState({ logtitle: logtitle, logdetails: logdetails });
-      },
-      this
+        this.setState({
+          logtitle: logtitle,
+          logdetails: logdetails,
+          fetched: true
+        });
+      }
     );
     // Intialize state
-    this.state = { logtitle: logtitle };
+    this.state = { logtitle: logtitle, fetched: false };
   }
 
   render() {
     let fullcontent;
-    if (this.state.logdetails === undefined) {
+    if (this.state.logdetails === undefined && this.state.fetched === false) {
       fullcontent = (
         <div className="waiter">
           <Wave size={100} color="white" />
         </div>
       );
+    } else if (
+      this.state.logdetails === undefined &&
+      this.state.fetched === true
+    ) {
+      fullcontent = <div className="note">no logs found</div>;
     } else {
       fullcontent = (
         <div className="detailsordiscuss">
