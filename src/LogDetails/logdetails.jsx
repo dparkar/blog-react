@@ -14,7 +14,8 @@ const repoContentPath = 'content';
 export default class LogDetails extends TrackedComponent {
   constructor(props) {
     super(props);
-    var logtitle = this.props.logtitle;
+    var logtitle = decodeURIComponent(this.props.logtitle);
+    console.log(logtitle);
     var gh = new GitHub();
     // get the repo
     repo = gh.getRepo(user, repoName);

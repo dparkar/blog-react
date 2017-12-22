@@ -16,7 +16,6 @@ const repoLogsMetadataFile = 'logs.json';
 export default class Logs extends TrackedComponent {
   constructor(props) {
     super(props);
-    var tag = this.props.tag;
     var gh = new GitHub();
     // get the repo
     repo = gh.getRepo(user, repoName);
@@ -30,24 +29,23 @@ export default class Logs extends TrackedComponent {
           console.log(err); // we can't get the data, for some reason
           return;
         }
-
-        // filtering tags
-        if (tag !== undefined) {
-          tag = decodeURIComponent(tag);
-          logs = logs.filter(log => log.tags.indexOf(tag) !== -1);
-        }
-
-        this.setState({ logs: logs, fetched: true });
+        this.setState({ logs: logs, tagged: this.props.tag, fetched: true });
       }
     );
     // Intialize state
     this.state = {
       logs: [],
+      tagged: undefined,
       fetched: false
     };
   }
 
+  componentWillReceiveProps(nextProps, nextState) {
+    this.setState({ tagged: nextProps.tag });
+  }
+
   render() {
+    let filteredlogs = this.state.logs;
     let logs;
     if (this.state.logs.length === 0 && this.state.fetched === false) {
       logs = (
@@ -58,10 +56,25 @@ export default class Logs extends TrackedComponent {
     } else if (this.state.logs.length === 0 && this.state.fetched === true) {
       logs = <div className="note">no logs found</div>;
     } else {
-      logs = this.state.logs.map(log => {
+      // filtering if tag is supplied
+      if (this.state.tagged !== undefined) {
+        var tag = decodeURIComponent(this.state.tagged);
+        filteredlogs = this.state.logs.filter(
+          log => log.tags.indexOf(tag) !== -1
+        );
+      }
+      logs = filteredlogs.map(log => {
+        var tagbuttons = log.tags.map(tag => {
+          var l = '/tagged/' + encodeURIComponent(tag);
+          return (
+            <Link id={tag} to={l}>
+              {tag}
+            </Link>
+          );
+        });
         return (
           <div className="logmetadata">
-            <Link id={log.title} to={'/log/' + log.title}>
+            <Link id={log.title} to={'/log/' + encodeURIComponent(log.title)}>
               <div className="logtitle">
                 {log.title}
               </div>
@@ -70,6 +83,7 @@ export default class Logs extends TrackedComponent {
               </div>
             </Link>
             <div className="clearboth" />
+            {tagbuttons}
           </div>
         );
       });
