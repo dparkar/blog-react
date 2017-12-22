@@ -16,6 +16,7 @@ const repoLogsMetadataFile = 'logs.json';
 export default class Logs extends TrackedComponent {
   constructor(props) {
     super(props);
+    var tag = this.props.tag;
     var gh = new GitHub();
     // get the repo
     repo = gh.getRepo(user, repoName);
@@ -28,6 +29,11 @@ export default class Logs extends TrackedComponent {
         if (err) {
           console.log(err); // we can't get the data, for some reason
           return;
+        }
+
+        if (tag !== undefined) {
+          console.log('filtering');
+          logs = logs.filter(log => log.tags.include(tag));
         }
         this.setState({ logs: logs });
       }
@@ -49,17 +55,17 @@ export default class Logs extends TrackedComponent {
     } else {
       logs = this.state.logs.map(log => {
         return (
-          <Link id={log.title} to={'/log/' + log.title}>
-            <div className="logmetadata">
+          <div className="logmetadata">
+            <Link id={log.title} to={'/log/' + log.title}>
               <div className="logtitle">
                 {log.title}
               </div>
               <div className="logdatetime">
                 {log.datetime}
               </div>
-              <div className="clearboth" />
-            </div>
-          </Link>
+            </Link>
+            <div className="clearboth" />
+          </div>
         );
       });
     }
