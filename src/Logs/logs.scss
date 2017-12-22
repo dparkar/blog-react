@@ -1,25 +1,29 @@
+.metadatawithtags {
+    margin-bottom: 2%;
+}
+
 .logmetadata {
     padding:1%;
     border-radius: 5px;
     background-color: white;
-    margin-bottom: 2%;
     box-shadow: 5px 5px;
   }
   
 /* unvisited link */
-a:link {
+.metadatawithtags a:link {
     color: black;
     text-decoration: none;
 }
 
 /* visited link */
-a:visited {
+.metadatawithtags a:visited {
     color: black;
     text-decoration: none;
 }
 
-a:hover {
-    font-weight: bolder
+.logmetadata:hover {
+    background-color: lightgray;
+    cursor: pointer;
 }
 
 .waiter {
@@ -33,8 +37,8 @@ a:hover {
 }
 
 .tag {
-    margin-left: 0.5%;
     background-color: lightgray;
+    margin-right: 2px;
     padding-top: 1px;
     padding-bottom:1px;
     padding-left:2px;
@@ -45,8 +49,7 @@ a:hover {
 }
 
 .tag:hover{
-    font-weight: normal;
-    background-color: gray;
+    background-color: white;
 }
 
 @media (min-width: 768px) {

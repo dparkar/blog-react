@@ -42,6 +42,8 @@ export default class Logs extends TrackedComponent {
 
   componentWillReceiveProps(nextProps, nextState) {
     this.setState({ tagged: nextProps.tag });
+    var logsdiv = document.getElementById('logs');
+    logsdiv.scrollIntoView();
   }
 
   render() {
@@ -73,16 +75,18 @@ export default class Logs extends TrackedComponent {
           );
         });
         return (
-          <div className="logmetadata">
+          <div className="metadatawithtags">
             <Link id={log.title} to={'/log/' + encodeURIComponent(log.title)}>
-              <div className="logtitle">
-                {log.title}
-              </div>
-              <div className="logdatetime">
-                {log.datetime}
+              <div className="logmetadata">
+                <div className="logtitle">
+                  {log.title}
+                </div>
+                <div className="logdatetime">
+                  {log.datetime}
+                </div>
+                <div className="clearboth" />
               </div>
             </Link>
-            <div className="clearboth" />
             <div className="tags">
               {tagbuttons}
             </div>
@@ -91,7 +95,7 @@ export default class Logs extends TrackedComponent {
       });
     }
     return (
-      <div className="logs">
+      <div id="logs" className="logs">
         <title>logs | dhawal parkar</title>
         {logs}
       </div>
