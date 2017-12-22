@@ -1,32 +1,55 @@
-.ReactCollapse--collapse {
-    max-width: auto;
-    border: 1px solid gray;
-    border-radius: 20px;
-    background-color: white;
-    margin-top:1%;
-    margin-bottom: 1%;
-    margin-right: 1%;
-    margin-left:5%;
-  }
-.logorsocial {
-    padding:1%;
-  }
+.metadatawithtags {
+    margin-bottom: 2%;
+}
+
 .logmetadata {
     padding:1%;
-    border-radius: 20px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 5px 5px;
   }
-.logmetadata:hover{
+  
+/* unvisited link */
+.metadatawithtags a:link {
+    color: black;
+    text-decoration: none;
+}
+
+/* visited link */
+.metadatawithtags a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+.logmetadata:hover {
     background-color: lightgray;
     cursor: pointer;
 }
-.logtagsandsocial {
-    padding:1%;
-    border-radius: 20px;
+
+.waiter {
+    display: flex;
+    justify-content: center;
 }
 
-table {
-    margin-left: auto;
-    margin-right: auto;
+.note {
+    color: white;
+    text-align: center;
+}
+
+.tag {
+    background-color: lightgray;
+    margin-right: 2px;
+    padding-top: 1px;
+    padding-bottom:1px;
+    padding-left:2px;
+    padding-right:2px;
+    border: 1px solid #CCCCCC;
+    border-radius: 2px;
+    font-size: 12px;
+}
+
+.tag:hover{
+    background-color: white;
 }
 
 @media (min-width: 768px) {
@@ -35,14 +58,6 @@ table {
         padding-left: 0.5%;
     }
     .logdatetime {
-        float: right;
-        padding-right: 0.5%;
-    }
-    .logtags {
-        float: left;
-        padding-left: 0.5%;
-    }
-    .logsocial {
         float: right;
         padding-right: 0.5%;
     }
@@ -59,74 +74,10 @@ table {
         text-align: center;
         padding-right: 0.5%;
     }
-    .logtags {
+    .tags {
         text-align: center;
-        padding-left: 0.5%;
-    }
-    .logsocial {
-        text-align: center;
-        padding-right: 0.5%;
     }
     .clearboth{
         clear: both;
     }
-}
-
-/* Example Styles for React Tags*/
-div.ReactTags__tags {
-    position: relative;
-}
-
-/* Styles for the input */
-div.ReactTags__tagInput {
-    width: 200px;
-    border-radius: 2px;
-    display: inline-block;
-}
-div.ReactTags__tagInput input.ReactTags__tagInputField,
-div.ReactTags__tagInput input.ReactTags__tagInputField:focus {
-    height: 31px;
-    margin: 0;
-    width: 100%;
-    border: 1px solid #eee;
-}
-
-/* Styles for selected tags */
-div.ReactTags__selected span.ReactTags__tag {
-    border: 1px solid #ddd;
-    background: #eee;
-    display: inline-block;
-    padding: 5px;
-    margin-right: 5px;
-    border-radius: 10px;
-}
-div.ReactTags__selected a.ReactTags__remove {
-    color: #aaa;
-    margin-left: 5px;
-    cursor: pointer;
-}
-
-/* Styles for suggestions */
-div.ReactTags__suggestions {
-    position: absolute;
-}
-div.ReactTags__suggestions ul {
-    list-style-type: none;
-    box-shadow: .05em .01em .5em rgba(0,0,0,.2);
-    background: white;
-    width: 200px;
-}
-div.ReactTags__suggestions li {
-    border-bottom: 1px solid #ddd;
-    padding: 5px 10px;
-    margin: 0;
-}
-div.ReactTags__suggestions li mark {
-    text-decoration: underline;
-    background: none;
-    font-weight: 600;
-}
-div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
-    background: #b7cfe0;
-    cursor: pointer;
 }
