@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { TrackedComponent } from 'react-appinsights';
 import GitHub from 'github-api';
 import { Wave } from 'better-react-spinkit';
-
+import MetaTags from 'react-meta-tags';
 import './logs.css';
 
 let repo;
@@ -96,7 +96,27 @@ export default class Logs extends TrackedComponent {
     }
     return (
       <div id="logs" className="logs">
-        <title>logs | dhawal parkar</title>
+        <MetaTags>
+          <title>logs | dhawal parkar</title>
+          <meta property="og:type" content="website" />
+          <meta property="og:site_name" content="dplogs" />
+          <meta property="og:title" content="logs | dhawal parkar" />
+          <meta property="og:url" content="http://dplogs.com" />
+          <meta
+            property="og:image"
+            content="https://dplogscontent.blob.core.windows.net/dplogs/metaimage_250_250.png"
+          />
+          <meta property="og:image:alt" content="dplogs" />
+          <meta property="og:image:width" content="250" />
+          <meta property="og:image:height" content="250" />
+          <meta
+            property="og:description"
+            content="Artificial Intelligence and Robotics"
+          />
+          <meta property="fb:app_id" content="367989410291145" />
+          <meta name="twitter:card" content="summary" />
+          <meta name="twitter:creator" content="@dparkar" />
+        </MetaTags>
         {logs}
       </div>
     );
