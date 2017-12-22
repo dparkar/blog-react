@@ -7,8 +7,8 @@ import './about.css';
 export default class About extends TrackedComponent {
   render() {
     document.title = 'about | dhawal parkar';
-    document.getElementsByTagName('META')[4].content = 'about | dhawal parkar';
-    document.getElementsByTagName('META')[5].content =
+    document.getElementsByTagName('META')[3].content = 'about | dhawal parkar';
+    document.getElementsByTagName('META')[4].content =
       'http://dplogs.com/about';
 
     return (
