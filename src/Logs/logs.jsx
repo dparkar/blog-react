@@ -49,8 +49,7 @@ export default class Logs extends TrackedComponent {
     if (this.state.tagged === undefined) {
       document.title = 'logs | dhawal parkar';
       document.getElementsByTagName('META')[3].content = 'logs | dhawal parkar';
-      document.getElementsByTagName('META')[4].content =
-        'http://dplogs.com/logs';
+      document.getElementsByTagName('META')[4].content = 'http://dplogs.com';
     } else {
       document.title = 'tagged ' + this.state.tagged + ' | dhawal parkar';
       document.getElementsByTagName('META')[3].content =
