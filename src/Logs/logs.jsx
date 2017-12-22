@@ -41,7 +41,11 @@ export default class Logs extends TrackedComponent {
   render() {
     let logs;
     if (this.state.logs.length === 0) {
-      logs = <Wave size={100} color="white" />;
+      logs = (
+        <div className="waiter">
+          <Wave size={100} color="white" />
+        </div>
+      );
     } else {
       logs = this.state.logs.map(log => {
         return (

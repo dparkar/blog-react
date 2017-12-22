@@ -42,7 +42,11 @@ export default class LogDetails extends TrackedComponent {
   render() {
     let fullcontent;
     if (this.state.logdetails === undefined) {
-      fullcontent = <Wave size={100} color="white" />;
+      fullcontent = (
+        <div className="waiter">
+          <Wave size={100} color="white" />
+        </div>
+      );
     } else {
       fullcontent = (
         <div className="detailsordiscuss">
