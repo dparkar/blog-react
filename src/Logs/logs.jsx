@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { TrackedComponent } from 'react-appinsights';
 import GitHub from 'github-api';
 import { Wave } from 'better-react-spinkit';
-
 import './logs.css';
 
 let repo;
@@ -47,6 +46,18 @@ export default class Logs extends TrackedComponent {
   }
 
   render() {
+    if (this.state.tagged === undefined) {
+      document.title = 'logs | dhawal parkar';
+      document.getElementsByTagName('META')[3].content = 'logs | dhawal parkar';
+      document.getElementsByTagName('META')[4].content = 'http://dplogs.com';
+    } else {
+      document.title = 'tagged ' + this.state.tagged + ' | dhawal parkar';
+      document.getElementsByTagName('META')[3].content =
+        'tagged ' + this.state.tagged + ' | dhawal parkar';
+      document.getElementsByTagName('META')[4].content =
+        'http://dplogs.com/tagged/' + this.state.tagged;
+    }
+
     let filteredlogs = this.state.logs;
     let logs;
     if (this.state.logs.length === 0 && this.state.fetched === false) {
@@ -96,7 +107,6 @@ export default class Logs extends TrackedComponent {
     }
     return (
       <div id="logs" className="logs">
-        <title>logs | dhawal parkar</title>
         {logs}
       </div>
     );

@@ -44,7 +44,7 @@
     {
         "key":-5,
         "datetime":"2010-05-17T18:42:00.000Z",
-        "title":"c#_unit_testing_private_methods",
+        "title":"cs_unit_testing_private_methods",
         "tags":["c#","unit-tests"]
     },
     {
@@ -56,13 +56,13 @@
     {
         "key":-7,
         "datetime":"2010-04-26T07:45:00.000Z",
-        "title":"c#_unit_testing_ftp_with_resource_files",
+        "title":"cs_unit_testing_ftp_with_resource_files",
         "tags":["c#","unit-tests","ftp"]
     },
     {
         "key":-8,
         "datetime":"2010-03-08T21:02:00.000Z",
-        "title":"c#_hostname_machinename_ipaddress",
+        "title":"cs_hostname_machinename_ipaddress",
         "tags":["c#"]
     },
     {
